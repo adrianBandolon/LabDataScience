@@ -3,22 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://nifty-banach-53829d.netlify.com/2020/02/test-post/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://nifty-banach-53829d.netlify.com/about/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/categories/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/categories/getting-started/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,42 +13,15 @@
   </url>
   
   <url>
-    <loc>https://nifty-banach-53829d.netlify.com/categories/laboratory/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
+    <loc>https://nifty-banach-53829d.netlify.com/archives/</loc>
   </url>
   
   <url>
-    <loc>https://nifty-banach-53829d.netlify.com/tags/laboratory/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/post/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/categories/r/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/tags/r/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/tags/r-markdown/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
+    <loc>https://nifty-banach-53829d.netlify.com/categories/</loc>
   </url>
   
   <url>
     <loc>https://nifty-banach-53829d.netlify.com/tags/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nifty-banach-53829d.netlify.com/archives/</loc>
   </url>
   
 </urlset>
