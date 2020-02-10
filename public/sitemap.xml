@@ -3,35 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://nifty-banach-53829d.netlify.com/about/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://nifty-banach-53829d.netlify.com/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
+    <loc>https://nifty-banach-53829d.netlify.com/archives/</loc>
   </url>
   
   <url>
-    <loc>/2020/02/test-post/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
+    <loc>https://nifty-banach-53829d.netlify.com/categories/</loc>
   </url>
   
   <url>
-    <loc>/archives/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>https://nifty-banach-53829d.netlify.com/tags/</loc>
   </url>
   
 </urlset>
