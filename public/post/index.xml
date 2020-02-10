@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Lab Data Science</title>
-    <link>https://nifty-banach-53829d.netlify.com/categories/r/</link>
-    <description>Recent content in R on Lab Data Science</description>
+    <title>Posts on Lab Data Science</title>
+    <link>https://nifty-banach-53829d.netlify.com/post/</link>
+    <description>Recent content in Posts on Lab Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://nifty-banach-53829d.netlify.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nifty-banach-53829d.netlify.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
