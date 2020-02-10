@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lab Data Science</title>
-    <link>/</link>
+    <link>https://nifty-banach-53829d.netlify.com/</link>
     <description>Recent content on Lab Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nifty-banach-53829d.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test Post</title>
-      <link>/2020/02/test-post/</link>
+      <link>https://nifty-banach-53829d.netlify.com/2020/02/test-post/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/02/test-post/</guid>
+      <guid>https://nifty-banach-53829d.netlify.com/2020/02/test-post/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://nifty-banach-53829d.netlify.com/about/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://nifty-banach-53829d.netlify.com/about/</guid>
       <description>I have been a Clinical Laboratory Scientist (or a Medical Technologist as they called us back in the day) for over 15 years . In that time I have earned a PhD in Marine Biology and more recently, a Master&amp;rsquo;s in Computer Science specializing in Data Science.
 Currently, I manage a laboratory that provide services for a free-standing ED in South Texas. This blog will focus on statistics and data science applications in the laboratory and in my day-to-day.</description>
     </item>
