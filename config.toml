@@ -218,7 +218,7 @@ canonifyurls = true
 
   [params.header.rightLink]
     class = ""
-    icon = ""
+    icon = "" 
     url = "/#about"
 
   # Customize link of author avatar in sidebar
