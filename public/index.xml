@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lab Data Science</title>
-    <link>https://nifty-banach-53829d.netlify.com/</link>
+    <link>/</link>
     <description>Recent content on Lab Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://nifty-banach-53829d.netlify.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Motivations</title>
-      <link>https://nifty-banach-53829d.netlify.com/2020/02/my-motivations/</link>
+      <link>/2020/02/my-motivations/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nifty-banach-53829d.netlify.com/2020/02/my-motivations/</guid>
+      <guid>/2020/02/my-motivations/</guid>
       <description>In the current paradigm, laboratories, specially clinical laboratories are seen as data producers. When I say “clinical laboratory” I am referring to laboratories that have very limited reasearch functions. They typically provide services for hospitals, clinics or is a referrence lab for specialized testing. These laboratories churn out thousands of columns and millions of rows of structured data daily, yet most it remains unused.
 We, as an industry and a profession are sitting on an untapped mine that we do not yet know how to dig.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://nifty-banach-53829d.netlify.com/about/</link>
+      <link>/about/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nifty-banach-53829d.netlify.com/about/</guid>
-      <description>I have been a Clinical Laboratory Scientist (or a Medical Technologist as they called us back in the day) for over 15 years . In that time I have earned a PhD in Marine Biology and more recently, a Master&amp;rsquo;s in Computer Science specializing in Data Science.
+      <guid>/about/</guid>
+      <description>I have been a Medical Laboratory Scientist (or a Medical Technologist as they called us back in the day) for over 15 years . In that time I have earned a PhD in Marine Biology and more recently, a Master&amp;rsquo;s in Computer Science specializing in Data Science.
 Currently, I manage a laboratory that provide services for a free-standing ED in South Texas. This blog will focus on statistics and data science applications in the laboratory and in my day-to-day.</description>
     </item>
     
