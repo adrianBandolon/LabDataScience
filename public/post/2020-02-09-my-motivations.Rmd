@@ -25,7 +25,7 @@ weight: 1
 
 In the current paradigm, laboratories, specially clinical laboratories are seen as data producers. When I say **"clinical laboratory"** I am referring to laboratories that have very limited reasearch functions. They typically provide services for hospitals, clinics or is a referrence lab for specialized testing. These laboratories churn out thousands of columns and millions of rows of structured data daily, yet most it remains unused. 
 
-We, as an industry and a profession are sitting on an untapped mine that we do not yet know how to dig. How do we start mining all this data (sorry for the pun. Get it? Data mining)? We can start by developing our literacy and fluency in statistical techniques so we can make sense of the data we encounter in our personal and professional lives.
+Clinical laboratories are sitting on an untapped mine that we do not yet know how to dig. How do we start mining all this data?^[Sorry for the pun. Get it? Data mining] We can start by developing our literacy and fluency in statistical techniques so we can make sense of the data we encounter in our personal and professional lives.
 
 My goal here is to share what I've learned on how to collect, interpret and interact with data. I also would like to share about the creative use of data to answer questions in your day-to-day. More importantly, I hope that by sharing what I know, I can learn from all of you. I practically live in Northern Mexico (not really, about 2 hours from the Mexican border), and in my own world. I would really like to hear about elegant solutions and novel ideas from outside this tiny world of mine.
 

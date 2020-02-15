@@ -15,12 +15,12 @@
 # put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://nifty-banach-53829d.netlify.com/"
+baseURL = "https://labdatascience.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Lab Data Science"
 theme = "hugo-tranquilpeak-theme"
-#disqusShortname = "LabDataScience"
+# disqusShortname = "LabDataScience"
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
@@ -163,8 +163,9 @@ canonifyurls = true
   # Display thumbnail image of each post on index pages 
   #   (false: disabled, true: enabled)
   thumbnailImage = true
-  # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
-  # Set this value to `right` if you have old posts to keep the old style on them
+  # Display thumbnail image at the right of title in index pages 
+  # (`right`, `left` or `bottom`). Set this value to `right` if you have 
+  # addinold posts to keep the old style on them
   # and define `thumbnailImagePosition` on a post to overwrite this setting
   thumbnailImagePosition = "bottom"
   # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
