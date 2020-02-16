@@ -1,0 +1,22 @@
+---
+title: Statistics Basics
+author: Adrian Bandolon
+date: '2020-02-16'
+slug: statistics-basics
+categories:
+  - Data Science
+  - Laboratory
+  - R
+  - Getting Started
+tags:
+  - R
+  - Statistics
+keywords:
+  - tech
+clearReading: true
+thumbnailImage: /post/2020-02-16-statistics-basics_files/sundial.jpg
+thumbnailImagePosition: left
+autoThumbnailImage: no
+---
+
+trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh

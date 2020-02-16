@@ -1,7 +1,7 @@
 html {
     font-family: $font-family-base;
     // equal to 10px, useful to use em and rem
-    font-size:   10px;
+    font-size: 10px;
     // Gives you better control of the font size when the first selected font is not available.
     @include prefix(text-size-adjust, 100%, 'ms' 'webkit');
     // Overrides the highlight color shown when the user taps
@@ -10,18 +10,17 @@ html {
 }
 
 body {
-    width:          100%;
-    height:         100%;
-    margin:         0;
-    padding:        0;
-    background:     white;
-    font-family:    $font-family-base;
-    font-size:      map-get($font-size, base);
-    line-height:    $line-height-base;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: $font-family-base;
+    font-size: map-get($font-size, base);
+    line-height: $line-height-base;
     letter-spacing: $letter-spacing-base;
     // Improve smoothing of the font by adding subpixel in Safari
     @include prefix(font-smoothing, subpixel-antialiased, 'webkit');
-
     // Hide overflow-x when the sidebar is swiped
     &.pushed {
         overflow-x: hidden;
@@ -35,10 +34,10 @@ h4,
 h5,
 h6 {
     letter-spacing: -0.04em;
-    font-family:    map-get($font-families, 'headings');
-    font-weight:    700;
-    line-height:    1.45em;
-    color:          #4a4a4a;
+    font-family: map-get($font-families, 'headings');
+    font-weight: 700;
+    line-height: 1.45em;
+    color: #4a4a4a;
 }
 
 h1,
@@ -54,7 +53,8 @@ h6 {
 }
 
 // List each header with his font size
-@each $key, $value in $headings-font-size {
+@each $key,
+$value in $headings-font-size {
     #{$key} {
         font-size: $value;
     }
@@ -75,26 +75,25 @@ a {
     &:hover,
     &:active,
     &:visited {
-        cursor:          pointer;
-        color:           map-get($colors, link);
+        cursor: pointer;
+        color: map-get($colors, link);
         text-decoration: none;
     }
     &:hover {
-        color:           map-get($colors, link);
+        color: map-get($colors, link);
         text-decoration: underline;
     }
 }
 
 table {
-    width:           100%;
-    background:      transparent;
+    width: 100%;
+    background: transparent;
     border-collapse: collapse;
-    border-spacing:  0;
-    text-align:      left;
-
+    border-spacing: 0;
+    text-align: left;
     th {
-        padding:       5px 10px;
-        font-weight:   bold;
+        padding: 5px 10px;
+        font-weight: bold;
         border-bottom: 2px solid #909ba2;
     }
     td {
@@ -108,9 +107,9 @@ table {
 }
 
 hr {
-    margin:     1.5em 0 0;
-    outline:    none;
-    border:     none;
+    margin: 1.5em 0 0;
+    outline: none;
+    border: none;
     border-top: 1px solid #eef2f8;
 }
 
@@ -124,44 +123,43 @@ dl {
 }
 
 // code block
-pre > code {
-    display:     block;
-    width:       100%;
-    box-sizing:  border-box;
-    padding:     15px;
+pre>code {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
     font-family: #{map-get($font-families, 'highlight')};
-    border:      none;
-    margin:      0;
+    border: none;
+    margin: 0;
     // To override cursor attribute of `.tag` components
-    cursor:      text;
-    overflow-x:  auto;
+    cursor: text;
+    overflow-x: auto;
     line-height: map-get($highlight, line-height) + 0.4rem;
-    font-size:   map-get($highlight, font-size);
+    font-size: map-get($highlight, font-size);
 }
 
 // inline code
 code {
-    font-size:        map-get($font-size, medium);
-    display:          inline-block;
-    font-family:      map-get($font-families, 'code');
-    font-weight:      400;
+    font-size: map-get($font-size, medium);
+    display: inline-block;
+    font-family: map-get($font-families, 'code');
+    font-weight: 400;
     background-color: map-get($highlight, 'background');
-    padding:          0 10px;
+    padding: 0 10px;
 }
 
 blockquote {
     border-left: 3px solid map-get($colors, 'base');
-    padding:     0 15px;
-    font-style:  italic;
-    margin:      1.5em 0 0;
-
+    padding: 0 15px;
+    font-style: italic;
+    margin: 1.5em 0 0;
     cite {
         &:before {
             content: ' — ';
             padding: 0 0.3em;
         }
     }
-    & > p:first-child {
+    &>p:first-child {
         margin: 0;
     }
 }
@@ -171,7 +169,8 @@ blockquote {
     code {
         font-size: map-get($font-size, medium) - $font-size-base-sm-screen-reduction-factor;
     }
-    @each $key, $value in $headings-font-size {
+    @each $key,
+    $value in $headings-font-size {
         #{$key} {
             font-size: $value - $headings-font-size-sm-screen-reduction-factor;
         }
@@ -180,10 +179,10 @@ blockquote {
 
 // Reduce global font-size base and headings font size on medium screen only
 @media #{$medium-only} {
-    @each $key, $value in $headings-font-size {
+    @each $key,
+    $value in $headings-font-size {
         #{$key} {
             font-size: $value - $headings-font-size-md-screen-reduction-factor;
         }
     }
 }
-

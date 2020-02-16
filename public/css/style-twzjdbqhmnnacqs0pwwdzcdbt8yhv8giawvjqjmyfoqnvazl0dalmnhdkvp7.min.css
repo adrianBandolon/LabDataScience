@@ -46,7 +46,7 @@
 
 html {
     font-family: "Playfair Display", serif;
-    font-size: 10px;
+    font-size: 11px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -82,7 +82,7 @@ h6 {
     font-family: "Playfair Display", serif;
     font-weight: 400;
     line-height: 1.45em;
-    color: #292929
+    color: #202020
 }
 
 h1,
@@ -653,7 +653,7 @@ pre.code-highlight>code {
     position: fixed;
     top: 0;
     border: 1px solid #eef2f8;
-    color: #88909a;
+    color: #9a8891;
     z-index: 20;
     transition: transform .25s ease-in-out;
     -webkit-transition: -webkit-transform .25s ease-in-out;
@@ -710,7 +710,7 @@ pre.code-highlight>code {
 }
 
 #header .header-title .header-title-link {
-    color: #88909a;
+    color: #2e2e2e;
     font-weight: 400
 }
 
@@ -2596,7 +2596,7 @@ a.fancybox {
 }
 
 .media-content {
-    color: #5d686f
+    color: #6f5d67
 }
 
 .modal-container {
@@ -2733,7 +2733,7 @@ a.fancybox {
     text-rendering: optimizelegibility;
     letter-spacing: -.3px;
     font-family: 'Playfair Display', serif;
-    color: #5d686f;
+    color: #2e2e2e;
     margin-top: 20px;
     font-weight: 400;
     overflow: hidden;

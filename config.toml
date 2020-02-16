@@ -34,8 +34,8 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "Adrian Bandolon"
-  #bio = "Not as cool as the picture would imply."
+  #name = "Adrian Bandolon"
+  bio = "In God we trust; everyone else bring data. **W.Edwards Deming**"
   job = "Data Scientist, Lab Manager, Marine Biologist"
   location = "Texas"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
@@ -145,7 +145,7 @@ canonifyurls = true
   # 5: Display header bar on all screens and large sidebar is swiped on 
   #    large screen
   # 6: Display header bar on all screens and medium sidebar is swiped
-  sidebarBehavior = 2
+  sidebarBehavior = 1
 
   # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up 
   # loading of pages.
