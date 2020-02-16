@@ -6,20 +6,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.64.0 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="">
+<meta name="author" content="Lab &amp; Data Science">
 <meta name="keywords" content="tech">
-<meta name="description" content="trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh">
+<meta name="description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 
 
-<meta property="og:description" content="trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh">
+<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Statistics Basics">
 <meta name="twitter:title" content="Statistics Basics">
 <meta property="og:url" content="/2020/02/statistics-basics/">
 <meta property="twitter:url" content="/2020/02/statistics-basics/">
 <meta property="og:site_name" content="Lab Data Science">
-<meta property="og:description" content="trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh">
-<meta name="twitter:description" content="trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh">
+<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
+<meta name="twitter:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 <meta property="og:locale" content="en-us">
 
   
@@ -95,13 +95,12 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="/">Lab Data Science</a>
-  </div>
-  
-    
+      <header id="header" data-behavior="">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20/%20">Lab Data Science</a>
+    </div>
+     
       <a class="header-right-picture "
          href="/#about">
     
@@ -111,10 +110,8 @@
         <img class="header-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
       
     
-    </a>
-  
+    </a> 
 </header>
-
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
@@ -122,7 +119,7 @@
         <a href="/#about">
           <img class="sidebar-profile-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name"></h4>
+        <h4 class="sidebar-profile-name">Lab &amp; Data Science</h4>
         
           <h5 class="sidebar-profile-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></h5>
         
@@ -232,13 +229,16 @@
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            <div class="post-header main-content-wrap text-left">
-  
+            <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<div class="post-header main-content-wrap text-left">
+    
     <h1 class="post-title" itemprop="headline">
-      Statistics Basics
+        Statistics Basics
     </h1>
-  
-  
+     
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2020-02-16T00:00:00Z">
@@ -269,9 +269,125 @@
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>trhisafgafdgadfgafdgafdgafdgadfgadfgkhkjh</p>
+<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
+<div id="probability-distributions" class="section level1">
+<h1>Probability Distributions</h1>
+<p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function. The <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} \]</span>
+where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma\)</span> is its standard deviation. If we are to plot this function it would look something like this:</p>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-1-1.png" width="192" style="display: block; margin: auto;" /></p>
+<p>Probability distributions generally are classified as either:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Discrete probability distribution</strong> – describes outcome probabilities for events that can be counted or are discrete. Discrete data can be numeric (e.g. WBC count) or it can also be categorical (e.g. type of WBC–neutrophils, lymhocytes, monocytes, etc.). Examples of well-known discrete probability distributions is the <em>Poisson distribution</em> and the <em>Bernoulli distribution</em>.</li>
+<li><strong>Continuous probability distribution</strong> – describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps. This data can only be numeric. Most results we get in the chemistry department, like glucose and sodium levels are considered continuous. The most common continuous probability distribution not just in the lab and out in the world is the <em>Normal distribution</em> also known as <em>Gaussian Distribution</em>. In clinical chemistry we may encounter the <em>Log-normal distribution</em> also.</li>
+</ol>
+</div>
+<div id="measures-of-central-tendency" class="section level1">
+<h1>Measures of Central Tendency</h1>
+<p>A measure of central tendency is a single value that attempts to summarize a dataset by identifying the central position within the set. They represent the most common value in a data set.</p>
+<p>The appropriate measure to use depends on the type and shape of the probability distribution you are working on. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normal distribution. However, there are instances where the mean is not an appropriate measure to use, even when we are working with a normally distributed dataset.</p>
+<div id="mean-arithmetic" class="section level2">
+<h2>Mean (Arithmetic)</h2>
+<p>More commonly called an <em>average</em>. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the <em>arithmetic mean</em> because there are other methods for calculating a mean. The <a href="https://en.wikipedia.org/wiki/Geometric_mean"><em>geometric mean</em></a> for example is the <em>n</em>th root of the product of the data. The geometric mean is used in the INR calculation in coagulation.</p>
+<p>The arithmetic mean is sensitive to <em>outliers</em>. An outlier is a value that is unusual compared to the rest of the dataset. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account.</p>
+<p>In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.</p>
+<pre class="r"><code># set seed to ensure &quot;randomly&quot; generated values
+# are the same at each run
+set.seed(123)
+
+# generate ten random numbers with mean = 100 and sd = 10
+seriesWithOutOutlier &lt;- rnorm(10, mean = 100, sd = 10)
+
+#mean without outlier
+seriesWithOutOutlier_mean &lt;- mean(seriesWithOutOutlier) 
+
+# add an outlier to the series
+seriesWithOutlier &lt;- c(seriesWithOutOutlier,300)</code></pre>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/outlierFig-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="median" class="section level2">
+<h2>Median</h2>
+<p>If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an odd number of points. For an even number of points, the arithmetic mean of the two middle points will be used as the mean.</p>
+<p>The median is less affected by outliers and skewed data. In the figure below, the median lies directly over (faint black line) the mean of the series where the outlier was not included.</p>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/medianPlot-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mode" class="section level2">
+<h2>Mode</h2>
+<p>The mode the most frequent valuein a data series. Mode is most often used for categorical or discrete data.</p>
+<p>In the example below the mode is 50, because Neutrophils have the highest count.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Cell Type
+</th>
+<th style="text-align:left;">
+Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Neutrophils
+</td>
+<td style="text-align:left;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lymphocytes
+</td>
+<td style="text-align:left;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Monocytes
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eosinophils
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Basophils
+</td>
+<td style="text-align:left;">
+8
+</td>
+</tr>
+</tbody>
+</table>
+<p>One of the issues of mode is that it is not always unique. We could for example have the same counts for neutrophils and lymphocytes when performing a differential.</p>
+</div>
+</div>
 
               
             </div>
@@ -355,11 +471,10 @@
           </div>
         </article>
         <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
+    <span class="copyrights">
     &copy; 2020 <a href="https://github.com/adrianBandolon">spyrokete</a>. All Rights Reserved
   </span>
 </footer>
-
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
         <div class="post-actions-wrap">
@@ -440,8 +555,7 @@
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
     </div>
-    
-    <div id="about">
+  <div id="about">
   <div id="about-card">
     <div id="about-btn-close">
       <i class="fa fa-remove"></i>
@@ -449,7 +563,7 @@
     
       <img id="about-card-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name"></h4>
+    <h4 id="about-card-name">Lab &amp; Data Science</h4>
     
       <div id="about-card-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></div>
     
@@ -469,18 +583,15 @@
     
   </div>
 </div>
-
-    
-
-    
+ 
+ 
   
     
       <div id="cover" style="background-image:url('/images/2135.jpg');"></div>
     
   
 
-
-    
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
@@ -525,8 +636,7 @@ $(document).ready(function() {
 
 
 
+ 
+</body>
 
-    
-  </body>
 </html>
-

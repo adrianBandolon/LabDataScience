@@ -34,7 +34,7 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  #name = "Adrian Bandolon"
+  name = "Lab & Data Science"
   bio = "In God we trust; everyone else bring data. **W.Edwards Deming**"
   job = "Data Scientist, Lab Manager, Marine Biologist"
   location = "Texas"
@@ -196,7 +196,7 @@ canonifyurls = true
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
   # [[params.customJS]]
-  #   src = "js/myscript.js"
+     #src = "js/myscript.js"
 
   # Sharing options
   # Comment and uncomment to enable or disable sharing options

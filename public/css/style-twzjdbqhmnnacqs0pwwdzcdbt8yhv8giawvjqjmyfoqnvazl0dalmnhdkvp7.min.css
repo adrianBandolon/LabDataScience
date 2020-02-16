@@ -201,12 +201,12 @@ code {
     display: inline-block;
     font-family: 'Hack', Courier, monospace;
     font-weight: 400;
-    background-color: #b4b4b4;
+    background-color: #dd0f0f;
     padding: 0 10px
 }
 
 blockquote {
-    border-left: 3px solid #5d686f;
+    border-left: 3px solid #6d5d6f;
     padding: 0 15px;
     font-style: italic;
     margin: 1.5em 0 0
