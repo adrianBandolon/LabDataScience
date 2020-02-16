@@ -28,12 +28,15 @@ A probability distribution is simply a description of the probability of a rando
 $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} $$
 where $\mu$ is the mean of the distribution and $\sigma$ is its standard deviation. If we are to plot this function it would look something like this:
 
-```{r echo=FALSE, fig.width=2, fig.height=2, fig.align='center'}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(package.startup.message = FALSE)
 library(ggplot2)
 library(knitr)
 library(dplyr)
 library(kableExtra)
+```
 
+```{r echo=FALSE, fig.width=2, fig.height=2, fig.align='center', error=FALSE, warning=FALSE}
 set.seed(1)
 df <- data.frame(pf = 10*rnorm(1000))
 
@@ -104,7 +107,7 @@ abline(h=mean(seriesWithOutlier), col = "blue", lty = 2)
 
 ## Mode 
 
-The mode the most frequent valuein a data series. Mode is most often used for categorical or discrete data. 
+The mode the most frequent value in a series of points. Mode is most often used for categorical or discrete data. 
 
 In the example below the mode is 50, because Neutrophils have the highest count.
 
@@ -118,4 +121,15 @@ colnames(df) <- c("Cell Type", "Count")
 df %>% kable("html") %>% kable_styling(full_width = FALSE)
 ```
 
-One of the issues of mode is that it is not always unique. We could for example have the same counts for neutrophils and lymphocytes when performing a differential.
+One of the issues of mode is that it is not always unique. We could for example have the same count for neutrophils and lymphocytes when performing a differential. 
+
+```{r echo=FALSE}
+counts <- c(37, 37, 9, 7, 10)
+
+df <- as.data.frame(cbind(cells, counts))
+colnames(df) <- c("Cell Type", "Count")
+
+df %>% kable("html") %>% kable_styling(full_width = FALSE)
+```
+
+This is why mode is seldom used for continuous variables. For example, consider measuring the glucose level of 30 people. How likely is it for two or more people to have **exactly** the same glucose level (e.g. 94.5 mmol/L)? It is very unlikely.

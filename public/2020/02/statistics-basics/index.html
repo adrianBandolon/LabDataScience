@@ -278,19 +278,6 @@
 <p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function. The <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
 <p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} \]</span>
 where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma\)</span> is its standard deviation. If we are to plot this function it would look something like this:</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## 
-## Attaching package: &#39;kableExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     group_rows</code></pre>
 <p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-1-1.png" width="192" style="display: block; margin: auto;" /></p>
 <p>Probability distributions generally are classified as either:</p>
 <ol style="list-style-type: decimal">
@@ -329,7 +316,7 @@ seriesWithOutlier &lt;- c(seriesWithOutOutlier,300)</code></pre>
 </div>
 <div id="mode" class="section level2">
 <h2>Mode</h2>
-<p>The mode the most frequent valuein a data series. Mode is most often used for categorical or discrete data.</p>
+<p>The mode the most frequent value in a series of points. Mode is most often used for categorical or discrete data.</p>
 <p>In the example below the mode is 50, because Neutrophils have the highest count.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -385,7 +372,62 @@ Basophils
 </tr>
 </tbody>
 </table>
-<p>One of the issues of mode is that it is not always unique. We could for example have the same counts for neutrophils and lymphocytes when performing a differential.</p>
+<p>One of the issues of mode is that it is not always unique. We could for example have the same count for neutrophils and lymphocytes when performing a differential.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Cell Type
+</th>
+<th style="text-align:left;">
+Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Neutrophils
+</td>
+<td style="text-align:left;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lymphocytes
+</td>
+<td style="text-align:left;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Monocytes
+</td>
+<td style="text-align:left;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eosinophils
+</td>
+<td style="text-align:left;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Basophils
+</td>
+<td style="text-align:left;">
+10
+</td>
+</tr>
+</tbody>
+</table>
+<p>This is why mode is seldom used for continuous variables. For example, consider measuring the glucose level of 30 people. How likely is it for two or more people to have <strong>exactly</strong> the same glucose level (e.g. 94.5 mmol/L)? It is very unlikely.</p>
 </div>
 </div>
 
