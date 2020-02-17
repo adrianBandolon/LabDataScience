@@ -12,15 +12,36 @@ tags:
   - R
   - Statistics
 keywords:
-  - tech
+  - R
+  - Statistics
+  - Getting Started
 clearReading: true
 thumbnailImage: /post/2020-02-16-statistics-basics_files/sundial.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: no
+
+draft: true
 ---
 
-Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).
+Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).
 
+# Data Types
+
+Data can generally can be classified as:
+  
+  1. **Discrete** - there are no between values.
+      a. Ordered (values are comparable)
+          - Ordinal (e.g. size: S, M, L, XL, ...)
+          - Quantitative (e.g. counts: 1, 2, 3, ...)
+      b. Unordered (values are not comparable)
+          - Nominal (e.g. shape: $\square$, $\diamond$, $\circ$, ...)
+          - Categories (e.g. WBC type: neutrophil, lymphocyte, monocyte, ...)
+  2. **Continuous** - there are between values.
+       a. Ordered (values are comparable)
+          - Fields (e.g. sodium level, temperature)
+       b. Unordered (values are not comparable)
+          - Cyclic values (e.g. directions)
+          
 # Probability Distributions
 
 A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function. The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) of a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for example is:
@@ -133,3 +154,7 @@ df %>% kable("html") %>% kable_styling(full_width = FALSE)
 ```
 
 This is why mode is seldom used for continuous variables. For example, consider measuring the glucose level of 30 people. How likely is it for two or more people to have **exactly** the same glucose level (e.g. 94.5 mmol/L)? It is very unlikely.
+
+# Measures of Dispersion
+
+

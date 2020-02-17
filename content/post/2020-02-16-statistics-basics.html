@@ -12,17 +12,51 @@ tags:
   - R
   - Statistics
 keywords:
-  - tech
+  - R
+  - Statistics
+  - Getting Started
 clearReading: true
 thumbnailImage: /post/2020-02-16-statistics-basics_files/sundial.jpg
 thumbnailImagePosition: left
 autoThumbnailImage: no
+
+draft: true
 ---
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on its study. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study common probability distributions and in the process learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
+<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
+<div id="data-types" class="section level1">
+<h1>Data Types</h1>
+<p>Data can generally can be classified as:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Discrete</strong> - there are no between values.
+<ol style="list-style-type: lower-alpha">
+<li>Ordered (values are comparable)
+<ul>
+<li>Ordinal (e.g. size: S, M, L, XL, …)</li>
+<li>Quantitative (e.g. counts: 1, 2, 3, …)</li>
+</ul></li>
+<li>Unordered (values are not comparable)
+<ul>
+<li>Nominal (e.g. shape: <span class="math inline">\(\square\)</span>, <span class="math inline">\(\diamond\)</span>, <span class="math inline">\(\circ\)</span>, …)</li>
+<li>Categories (e.g. WBC type: neutrophil, lymphocyte, monocyte, …)</li>
+</ul></li>
+</ol></li>
+<li><strong>Continuous</strong> - there are between values.
+<ol style="list-style-type: lower-alpha">
+<li>Ordered (values are comparable)
+<ul>
+<li>Fields (e.g. sodium level, temperature)</li>
+</ul></li>
+<li>Unordered (values are not comparable)
+<ul>
+<li>Cyclic values (e.g. directions)</li>
+</ul></li>
+</ol></li>
+</ol>
+</div>
 <div id="probability-distributions" class="section level1">
 <h1>Probability Distributions</h1>
 <p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function. The <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
@@ -179,4 +213,7 @@ Basophils
 </table>
 <p>This is why mode is seldom used for continuous variables. For example, consider measuring the glucose level of 30 people. How likely is it for two or more people to have <strong>exactly</strong> the same glucose level (e.g. 94.5 mmol/L)? It is very unlikely.</p>
 </div>
+</div>
+<div id="measures-of-dispersion" class="section level1">
+<h1>Measures of Dispersion</h1>
 </div>

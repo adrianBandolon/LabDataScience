@@ -102,6 +102,7 @@ canonifyurls = true
 
 
 [params]
+  keywords = ["R", "Statistics"]
   # Customize date format use to render blog post date, categories and other
   # You must use date format used by Go Time 
   # package https://golang.org/pkg/time/ Months (not work with 
@@ -117,8 +118,8 @@ canonifyurls = true
   # (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
   syntaxHighlighter = "highlight.js"
-  #customCSS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"]
-  #customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"]
+  customCSS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"]
+  customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"]
   
 
   # Hide sidebar on all article page to let article take full width to 
@@ -193,12 +194,12 @@ canonifyurls = true
 
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
-  [[params.customCSS]]
-     href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"
+  #[[params.customCSS]]
+     #href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
-  [[params.customJS]]
-     src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"
+  #[[params.customJS]]
+     #src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"
   
   # Sharing options
   # Comment and uncomment to enable or disable sharing options
