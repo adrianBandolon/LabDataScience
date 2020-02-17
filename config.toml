@@ -20,7 +20,7 @@ languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Lab Data Science"
 theme = "hugo-tranquilpeak-theme"
-# disqusShortname = "LabDataScience"
+disqusShortname = "labdatascience"
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
@@ -117,6 +117,9 @@ canonifyurls = true
   # (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
   syntaxHighlighter = "highlight.js"
+  #customCSS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"]
+  #customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"]
+  
 
   # Hide sidebar on all article page to let article take full width to 
   # improve reading, and enjoy wide images and cover images. 
@@ -190,14 +193,13 @@ canonifyurls = true
 
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
-  # [[params.customCSS]]
-  #   href = "css/mystyle.css"
-
+  [[params.customCSS]]
+     href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
-  # [[params.customJS]]
-     #src = "js/myscript.js"
-
+  [[params.customJS]]
+     src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"
+  
   # Sharing options
   # Comment and uncomment to enable or disable sharing options
   # If you wanna add a sharing option, read user documentation :
