@@ -8,18 +8,18 @@
 <meta name="generator" content="Hugo 0.64.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Lab &amp; Data Science">
 <meta name="keywords" content="R, Statistics, Getting Started, R, Statistics">
-<meta name="description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.">
+<meta name="description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 
 
-<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.">
+<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Statistics Basics">
 <meta name="twitter:title" content="Statistics Basics">
 <meta property="og:url" content="/2020/02/statistics-basics/">
 <meta property="twitter:url" content="/2020/02/statistics-basics/">
 <meta property="og:site_name" content="Lab Data Science">
-<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.">
-<meta name="twitter:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.">
+<meta property="og:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
+<meta name="twitter:description" content="Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).">
 <meta property="og:locale" content="en-us">
 
   
@@ -276,57 +276,28 @@
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still study data types and their associated probability distributions. In the process we learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
-<div id="data-types" class="section level1">
-<h1>Data Types</h1>
-<p>Data can generally can be classified as:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Discrete</strong> - there are no between values.
-<ol style="list-style-type: lower-alpha">
-<li>Ordered (values are comparable)
-<ul>
-<li>Ordinal (e.g. size: S, M, L, XL, …)</li>
-<li>Quantitative (e.g. counts: 1, 2, 3, …)</li>
-</ul></li>
-<li>Unordered (values are not comparable)
-<ul>
-<li>Nominal (e.g. shape: <span class="math inline">\(\square\)</span>, <span class="math inline">\(\diamond\)</span>, <span class="math inline">\(\circ\)</span>, …)</li>
-<li>Categories (e.g. WBC type: neutrophil, lymphocyte, monocyte, …)</li>
-</ul></li>
-</ol></li>
-<li><strong>Continuous</strong> - there are between values.
-<ol style="list-style-type: lower-alpha">
-<li>Ordered (values are comparable)
-<ul>
-<li>Fields (e.g. sodium level, temperature)</li>
-</ul></li>
-<li>Unordered (values are not comparable)
-<ul>
-<li>Cyclic values (e.g. directions)</li>
-</ul></li>
-</ol></li>
-</ol>
-</div>
+<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
 <div id="probability-distributions" class="section level1">
 <h1>Probability Distributions</h1>
-<p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function. The <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
+<p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function, called a <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function (PDF)</a>. The PDF of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
 <p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} \]</span>
-where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma\)</span> is its standard deviation. If we are to plot this function it would look something like this:</p>
+where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma\)</span> is its standard deviation. If we are to plot this function with <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma = 4.68\)</span>, it would look something like this:</p>
 <p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-1-1.png" width="192" style="display: block; margin: auto;" /></p>
-<p>Probability distributions generally are classified as either:</p>
+<p>Probability distributions are generally classified as either:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Discrete probability distribution</strong> – describes outcome probabilities for events that can be counted or are discrete. Discrete data can be numeric (e.g. WBC count) or it can also be categorical (e.g. type of WBC–neutrophils, lymhocytes, monocytes, etc.). Examples of well-known discrete probability distributions is the <em>Poisson distribution</em> and the <em>Bernoulli distribution</em>.</li>
-<li><strong>Continuous probability distribution</strong> – describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps. This data can only be numeric. Most results we get in the chemistry department, like glucose and sodium levels are considered continuous. The most common continuous probability distribution not just in the lab and out in the world is the <em>Normal distribution</em> also known as <em>Gaussian Distribution</em>. In clinical chemistry we may encounter the <em>Log-normal distribution</em> also.</li>
+<li><p><strong>Discrete probability distribution</strong> – describes outcome probabilities for events that can be counted. Discrete data can be numeric (e.g. WBC count) or it can also be categorical (e.g. type of WBC–neutrophils, lymhocytes, monocytes, etc.). Examples of well-known discrete probability distributions are the <em>Poisson</em> and the <em>Bernoulli</em> distributions.</p></li>
+<li><p><strong>Continuous probability distribution</strong> – describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps. This data can only be numeric. Most results we get in the chemistry department, like glucose and sodium levels are considered continuous. The most common continuous probability distribution not just in the lab and out in the world is the <em>Normal</em> distribution also known as <em>Gaussian</em> distribution. In clinical chemistry we may encounter the <em>Log-Normal</em> distribution also.</p></li>
 </ol>
+<p>Every distribution function has parameters (i.e. mean, standard deviation for the normal distribution). These parameters often describe the central tendency and the variation of the points within the distribution.</p>
 </div>
 <div id="measures-of-central-tendency" class="section level1">
 <h1>Measures of Central Tendency</h1>
-<p>A measure of central tendency is a single value that attempts to summarize a dataset by identifying the central position within the set. They represent the most common value in a data set.</p>
-<p>The appropriate measure to use depends on the type and shape of the probability distribution you are working on. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normal distribution. However, there are instances where the mean is not an appropriate measure to use, even when we are working with a normally distributed dataset.</p>
+<p>A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution.</p>
+<p>The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data. However, there are instances where the mean is not an appropriate measure to use, even when the data is normal.</p>
 <div id="mean-arithmetic" class="section level2">
 <h2>Mean (Arithmetic)</h2>
-<p>More commonly called an <em>average</em>. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the <em>arithmetic mean</em> because there are other methods for calculating a mean. The <a href="https://en.wikipedia.org/wiki/Geometric_mean"><em>geometric mean</em></a> for example is the <em>n</em>th root of the product of the data. The geometric mean is used in the INR calculation in coagulation.</p>
-<p>The arithmetic mean is sensitive to <em>outliers</em>. An outlier is a value that is unusual compared to the rest of the dataset. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account.</p>
+<p>More commonly called an <em>average</em>. This is <span class="math inline">\(\mu\)</span> in the equation above. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the <em>arithmetic mean</em> because there are other methods for calculating a mean. The <a href="https://en.wikipedia.org/wiki/Geometric_mean"><em>geometric mean</em></a> for example is the <em>n</em>th root of the product of the data. The geometric mean is used in the INR calculation in coagulation.</p>
+<p>The arithmetic mean is sensitive to <em>outliers</em>. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. Outliers can significantly influence the mean.</p>
 <p>In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.</p>
 <pre class="r"><code># set seed to ensure &quot;randomly&quot; generated values
 # are the same at each run
@@ -344,13 +315,13 @@ seriesWithOutlier &lt;- c(seriesWithOutOutlier,300)</code></pre>
 </div>
 <div id="median" class="section level2">
 <h2>Median</h2>
-<p>If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an odd number of points. For an even number of points, the arithmetic mean of the two middle points will be used as the mean.</p>
-<p>The median is less affected by outliers and skewed data. In the figure below, the median lies directly over (faint black line) the mean of the series where the outlier was not included.</p>
+<p>If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an odd number of points. For an even number of points, the arithmetic mean of the two middle points will be the median.</p>
+<p>The median is less affected by outliers and skewed data. In the figure below, the median lies directly over the mean (faint black line) of the series where the outlier was not included. The median was not affected by the outlier at all.</p>
 <p><img src="/post/2020-02-16-statistics-basics_files/figure-html/medianPlot-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mode" class="section level2">
 <h2>Mode</h2>
-<p>The mode the most frequent value in a series of points. Mode is most often used for categorical or discrete data.</p>
+<p>The mode is the most frequent value in a series. Mode is most often used for categorical or discrete data.</p>
 <p>In the example below the mode is 50, because Neutrophils have the highest count.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -406,7 +377,7 @@ Basophils
 </tr>
 </tbody>
 </table>
-<p>One of the issues of mode is that it is not always unique. We could for example have the same count for neutrophils and lymphocytes when performing a differential.</p>
+<p>An issue with using mode is that it is not always unique. We could, for example have the same count for neutrophils and lymphocytes when performing a differential.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -461,11 +432,27 @@ Basophils
 </tr>
 </tbody>
 </table>
-<p>This is why mode is seldom used for continuous variables. For example, consider measuring the glucose level of 30 people. How likely is it for two or more people to have <strong>exactly</strong> the same glucose level (e.g. 94.5 mmol/L)? It is very unlikely.</p>
+<p>This is why mode is seldom used for continuous variables. Consider measuring the glucose level of 30 people. How likely is it for two or more people to have <strong>exactly</strong> the same glucose level (e.g. 94.5 mmol/L)?</p>
 </div>
 </div>
 <div id="measures-of-dispersion" class="section level1">
 <h1>Measures of Dispersion</h1>
+<p>Measures of dispersion attempt to describe how far away the points are from the center. Consider the figure below:</p>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-4-1.png" width="192" style="display: block; margin: auto;" /></p>
+<p>The mean for both distributions are the same <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, but the points of the taller peak is less “dispersed” than the other. So let’s talk about how dispersion is measured below.</p>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p>Variance measures variability from the mean. It is a measure of how far each number in a set is from the mean, hence also from every other number in the set. The symbol for variance is <span class="math inline">\(\sigma^2\)</span>. The formula for variance is:</p>
+<p><span class="math display">\[\sigma^2 = \frac{\sum^{n}_{i=1}(x_i - x)^2}{n}\]</span></p>
+<p>where <span class="math inline">\(x_i=\)</span> the <span class="math inline">\(i^{th}\)</span> data point, <span class="math inline">\(x=\)</span> the mean of all data points, <span class="math inline">\(n=\)</span> the number of data points.</p>
+<p>A large variance indicates taht numbers in the set are from the mean and from each other. A small variance indicates the converse. A variance of zero indicates that all numbers in the set are identical. Variance can never be negative.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Approximately zero, but not exactly equal because we used a psuedorandom number generator<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
 
               
