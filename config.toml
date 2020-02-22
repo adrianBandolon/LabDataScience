@@ -18,7 +18,7 @@
 baseURL = "https://labdatascience.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
-title = "Lab Data Science"
+title = "Lab & Data Science"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "labdatascience"
 # googleAnalytics = "UA-123-45"
@@ -34,7 +34,7 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "Lab & Data Science"
+  name = "Adrian Bandolon"
   bio = "In God we trust; everyone else bring data. **W.Edwards Deming**"
   job = "Data Scientist, Lab Manager, Marine Biologist"
   location = "Texas"
