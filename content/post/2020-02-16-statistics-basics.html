@@ -24,9 +24,11 @@ autoThumbnailImage: no
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</p>
-<div id="probability-distributions" class="section level1">
-<h1>Probability Distributions</h1>
+<p>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory.</p>
+<p>We will first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation). I won’t go in great detail here. There are many tutorials out there that cover details more exhaustively.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>The goal here is define some common terms so that a data set can be viewed as having a shape, not just seemingly abstract formulas and concepts.</p>
+<div id="probability-distributions" class="section level2">
+<h2>Probability Distributions</h2>
 <p>A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function, called a <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function (PDF)</a>. The PDF of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> for example is:</p>
 <p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} \]</span>
 where <span class="math inline">\(\mu\)</span> is the mean of the distribution and <span class="math inline">\(\sigma\)</span> is its standard deviation. If we are to plot this function with <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma = 4.68\)</span>, it would look something like this:</p>
@@ -34,19 +36,19 @@ where <span class="math inline">\(\mu\)</span> is the mean of the distribution a
 <p>Probability distributions are generally classified as either:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Discrete probability distribution</strong> – describes outcome probabilities for events that can be counted. Discrete data can be numeric (e.g. WBC count) or it can also be categorical (e.g. type of WBC–neutrophils, lymhocytes, monocytes, etc.). Examples of well-known discrete probability distributions are the <em>Poisson</em> and the <em>Bernoulli</em> distributions.</p></li>
-<li><p><strong>Continuous probability distribution</strong> – describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps. This data can only be numeric. Most results we get in the chemistry department, like glucose and sodium levels are considered continuous. The most common continuous probability distribution not just in the lab and out in the world is the <em>Normal</em> distribution also known as <em>Gaussian</em> distribution. In clinical chemistry we may encounter the <em>Log-Normal</em> distribution also.</p></li>
+<li><p><strong>Continuous probability distribution</strong> – describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps. This data can only be numeric. Most results we get in the chemistry department. The value you get for a glucose level, for example is considered a continuous data type. The most commonly encountered continuous probability distribution in the lab and out in the world is the <em>Normal</em> distribution also known as <em>Gaussian</em> distribution. In clinical chemistry we commonly encounter the <em>Log-Normal</em> distribution also.</p></li>
 </ol>
-<p>Every distribution function has parameters (i.e. mean, standard deviation for the normal distribution). These parameters often describe the central tendency and the variation of the points within the distribution.</p>
+<p>Every distribution function has parameters (e.g. mean, standard deviation). These parameters describe the shape of the distribution. Below we talk about how these parameters are obtained from the data and how they affect the shape of the distribution.</p>
 </div>
-<div id="measures-of-central-tendency" class="section level1">
-<h1>Measures of Central Tendency</h1>
-<p>A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution.</p>
-<p>The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data. However, there are instances where the mean is not an appropriate measure to use, even when the data is normal.</p>
-<div id="mean-arithmetic" class="section level2">
-<h2>Mean (Arithmetic)</h2>
-<p>More commonly called an <em>average</em>. This is <span class="math inline">\(\mu\)</span> in the equation above. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the <em>arithmetic mean</em> because there are other methods for calculating a mean. The <a href="https://en.wikipedia.org/wiki/Geometric_mean"><em>geometric mean</em></a> for example is the <em>n</em>th root of the product of the data. The geometric mean is used in the INR calculation in coagulation.</p>
-<p>The arithmetic mean is sensitive to <em>outliers</em>. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. Outliers can significantly influence the mean.</p>
-<p>In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.</p>
+<div id="measures-of-central-tendency" class="section level2">
+<h2>Measures of Central Tendency</h2>
+<p>A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution. In the figure below, <span class="math inline">\(0\)</span> is the most common value in a series of points ranging <span class="math inline">\(-50\)</span> to <span class="math inline">\(50\)</span>.</p>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-2-1.png" width="192" style="display: block; margin: auto;" /></p>
+<p>The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data or data transformed so that they are normal.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> However, there are instances where the mean is not an appropriate measure to use, even when the data is normal. Alternatives to the mean are also presented below.</p>
+<div id="mean-arithmetic" class="section level3">
+<h3>Mean (Arithmetic)</h3>
+<p>More commonly called an <em>average</em>. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the <em>arithmetic mean</em> because there are other methods for calculating a mean. The <a href="https://en.wikipedia.org/wiki/Geometric_mean"><em>geometric mean</em></a> for example is the <em>n-</em>th root of the product of the data points. The geometric mean is used in the INR calculation in coagulation.</p>
+<p>The arithmetic mean is sensitive to <em>outliers</em>. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. The gap betweem the two lines is an example of how an outliers can significantly influence the mean.</p>
 <pre class="r"><code># set seed to ensure &quot;randomly&quot; generated values
 # are the same at each run
 set.seed(123)
@@ -58,17 +60,18 @@ seriesWithOutOutlier &lt;- rnorm(10, mean = 100, sd = 10)
 seriesWithOutOutlier_mean &lt;- mean(seriesWithOutOutlier) 
 
 # add an outlier to the series
-seriesWithOutlier &lt;- c(seriesWithOutOutlier,300)</code></pre>
+seriesWithOutlier &lt;- c(seriesWithOutOutlier, 300)</code></pre>
 <p><img src="/post/2020-02-16-statistics-basics_files/figure-html/outlierFig-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.</p>
 </div>
-<div id="median" class="section level2">
-<h2>Median</h2>
+<div id="median" class="section level3">
+<h3>Median</h3>
 <p>If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an odd number of points. For an even number of points, the arithmetic mean of the two middle points will be the median.</p>
 <p>The median is less affected by outliers and skewed data. In the figure below, the median lies directly over the mean (faint black line) of the series where the outlier was not included. The median was not affected by the outlier at all.</p>
 <p><img src="/post/2020-02-16-statistics-basics_files/figure-html/medianPlot-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
-<div id="mode" class="section level2">
-<h2>Mode</h2>
+<div id="mode" class="section level3">
+<h3>Mode</h3>
 <p>The mode is the most frequent value in a series. Mode is most often used for categorical or discrete data.</p>
 <p>In the example below the mode is 50, because Neutrophils have the highest count.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -125,7 +128,7 @@ Basophils
 </tr>
 </tbody>
 </table>
-<p>An issue with using mode is that it is not always unique. We could, for example have the same count for neutrophils and lymphocytes when performing a differential.</p>
+<p>We need to keep in mind that the mode is not always unique. We could, for example have the same count for neutrophils and lymphocytes when performing a differential.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -183,22 +186,186 @@ Basophils
 <p>This is why mode is seldom used for continuous variables. Consider measuring the glucose level of 30 people. How likely is it for two or more people to have <strong>exactly</strong> the same glucose level (e.g. 94.5 mmol/L)?</p>
 </div>
 </div>
-<div id="measures-of-dispersion" class="section level1">
-<h1>Measures of Dispersion</h1>
+<div id="measures-of-dispersion" class="section level2">
+<h2>Measures of Dispersion</h2>
 <p>Measures of dispersion attempt to describe how far away the points are from the center. Consider the figure below:</p>
-<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-4-1.png" width="192" style="display: block; margin: auto;" /></p>
-<p>The mean for both distributions are the same <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, but the points of the taller peak is less “dispersed” than the other. So let’s talk about how dispersion is measured below.</p>
-<div id="variance" class="section level2">
-<h2>Variance</h2>
-<p>Variance measures variability from the mean. It is a measure of how far each number in a set is from the mean, hence also from every other number in the set. The symbol for variance is <span class="math inline">\(\sigma^2\)</span>. The formula for variance is:</p>
-<p><span class="math display">\[\sigma^2 = \frac{\sum^{n}_{i=1}(x_i - x)^2}{n}\]</span></p>
-<p>where <span class="math inline">\(x_i=\)</span> the <span class="math inline">\(i^{th}\)</span> data point, <span class="math inline">\(x=\)</span> the mean of all data points, <span class="math inline">\(n=\)</span> the number of data points.</p>
-<p>A large variance indicates taht numbers in the set are from the mean and from each other. A small variance indicates the converse. A variance of zero indicates that all numbers in the set are identical. Variance can never be negative.</p>
+<p><img src="/post/2020-02-16-statistics-basics_files/figure-html/unnamed-chunk-5-1.png" width="192" style="display: block; margin: auto;" /></p>
+<p>The mean for both distributions is the same <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, but the points of the taller peak is less spread out, “dispersed”, than the shorter, more squat curve.</p>
+<div id="standard-deviation-variance" class="section level3">
+<h3>Standard Deviation &amp; Variance</h3>
+<p>Standard deviation (<span class="math inline">\(\sigma\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>) are grouped together because one can be derived from the other.</p>
+<p>They both measure how far each value is from the mean and thereby each other. These two measures differ in their units. Standard deviation is expressed in the same unit as the mean, while variance in expressed in squared units. For example, a normal distribution with <span class="math inline">\(mean\  =\ 2\)</span> and <span class="math inline">\(\sigma = 4\)</span>, is equal to a normal distribution with <span class="math inline">\(mean\  =\ 2\)</span> and <span class="math inline">\(\sigma^2 = 16\)</span>.
+<span class="math inline">\(\sigma\)</span>.</p>
+<p>The formula for standard deviation is:</p>
+<p><span class="math display">\[\sigma = \sqrt{\frac{\sum^{n}_{i=1}(x_i - x)^2}{n}}\]</span></p>
+<p>where <span class="math inline">\(x_i=\)</span> the <span class="math inline">\(i^{th}\)</span> data point, <span class="math inline">\(x=\)</span> the mean of all data points, <span class="math inline">\(n=\)</span> the number of data points. Squaring the standard deviation will give you the variance. Conversely, the square root of the variance is the standard deviation.</p>
+<p>A large standard deviation indicates that numbers in the set are spread out far from the mean and from each other. A small standard deviation indicates the converse. A standard deviation of zero indicates that there is no deviation from the mean. All individual data points are equal to the mean. Without getting too deep into the math of it, variance and standard deviation is always non-negative. These two values measure distance, and distance is always positive.</p>
 </div>
+<div id="coefficient-of-variation" class="section level3">
+<h3>Coefficient of Variation</h3>
+<p>The coefficient of variation is the ratio of the standard deviation to the mean of the data set. It is a standardized<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> measure of dispersion and is often expressed as a percentage.</p>
+<p>The formula for the coefficient of variation is:</p>
+<p><span class="math display">\[CV = \frac{\sigma}{\mu}*100\]</span>
+where <span class="math inline">\(\sigma=standard\ deviation\)</span> and <span class="math inline">\(\mu=\ mean\)</span>.</p>
+<p>Comparing standard deviation of two different data sets is sometimes meaningless. The coefficient of variation is useful for comparing the degree of variation of one data series to another even when the means of each data set are drastically different.</p>
+<p>For example, let’s say that we are evaluating two intruments that measure an analyte in different units, one in picograms and another in nanograms. We will chose the instrument with the lease amount of variability.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Picograms
+</th>
+<th style="text-align:right;">
+Nanograms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6.120
+</td>
+<td style="text-align:right;">
+0.006
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.799
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.004
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.553
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.779
+</td>
+<td style="text-align:right;">
+-0.003
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8.935
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.489
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-9.833
+</td>
+<td style="text-align:right;">
+-0.010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.507
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.364
+</td>
+<td style="text-align:right;">
+-0.002
+</td>
+</tr>
+</tbody>
+</table>
+In this connived example, the measurements are similar, except they are in different units. The values from the picogram column was divided by 1000 to get the values in the nanogram column.
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Picograms
+</th>
+<th style="text-align:right;">
+Nanograms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+1.043
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Standard Deviation
+</td>
+<td style="text-align:right;">
+5.190
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Coefficient of Variation
+</td>
+<td style="text-align:right;">
+497.586
+</td>
+<td style="text-align:right;">
+497.586
+</td>
+</tr>
+</tbody>
+</table>
+<p>The mean and standard deviations for each column are drastically different. However, the coefficient of variation for each data set are equal.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Most of the work we do in the lab involve the evaluation and interpretation of data. We learned about distributions and how their shape are based on the different measures of centrality and dispersion. We can now give our data shape, they no longer seem so abstract.</p>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Approximately zero, but not exactly equal because we used a psuedorandom number generator<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy</a> for example.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>We will discuss transformations at a later time.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Approximately zero, but not exactly equal because we used a psuedorandom number generator<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Standardization is the process of putting different variables or measures on the scale. This allows comparison between the different variables or measures.<a href="#fnref4" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

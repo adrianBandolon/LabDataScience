@@ -21,9 +21,13 @@ thumbnailImagePosition: left
 autoThumbnailImage: no
 ---
 
-Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. We still first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).
+Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. 
 
-# Probability Distributions
+We will first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation). I won't go in great detail here. There are many tutorials out there that cover details more exhaustively.^[[Khan Academy](https://www.khanacademy.org/math/statistics-probability) for example.]
+
+The goal here is define some common terms so that a data set can be viewed as having a shape, not just seemingly abstract formulas and concepts.
+
+## Probability Distributions
 
 A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function, called a [probability density function (PDF)](https://en.wikipedia.org/wiki/Probability_density_function). The PDF of a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for example is:
 
@@ -59,22 +63,24 @@ Probability distributions are generally classified as either:
 
 1. **Discrete probability distribution** -- describes outcome probabilities for events that can be counted. Discrete data can be numeric (e.g. WBC count) or it can also be categorical (e.g. type of WBC--neutrophils, lymhocytes, monocytes, etc.). Examples of well-known discrete probability distributions are the *Poisson* and the *Bernoulli* distributions.
 
-2. **Continuous probability distribution** -- describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps.  This data can only be numeric. Most results we get in the chemistry department, like glucose and sodium levels are considered continuous. The most common continuous probability distribution not just in the lab and out in the world is the *Normal* distribution also known as *Gaussian* distribution. In clinical chemistry we may encounter the *Log-Normal* distribution also.
+2. **Continuous probability distribution** -- describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps.  This data can only be numeric. Most results we get in the chemistry department. The value you get for a glucose level, for example is considered a continuous data type. The most commonly encountered continuous probability distribution in the lab and out in the world is the *Normal* distribution also known as *Gaussian* distribution. In clinical chemistry we commonly encounter the *Log-Normal* distribution also.
 
-Every distribution function has parameters (i.e. mean, standard deviation for the normal distribution). These parameters often describe the central tendency and the variation of the points within the distribution.
+Every distribution function has parameters (e.g. mean, standard deviation). These parameters describe the shape of the distribution. Below we talk about how these parameters are obtained from the data and how they affect the shape of the distribution.
 
-# Measures of Central Tendency
+## Measures of Central Tendency
 
-A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution. 
+A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution. In the figure below, $0$ is the most common value in a series of points ranging $-50$ to $50$.
 
-The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data. However, there are instances where the mean is not an appropriate measure to use, even when the data is normal.
+```{r echo=FALSE, fig.width=2, fig.height=2, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
+p1 + geom_vline(xintercept=0, linetype = "dashed", colour = "red")
+```
 
-## Mean (Arithmetic)
-More commonly called an *average*. This is $\mu$ in the equation above. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the *arithmetic mean* because there are other methods for calculating a mean. The [*geometric mean*](https://en.wikipedia.org/wiki/Geometric_mean) for example is the *n*th root of the product of the data. The geometric mean is used in the INR calculation in coagulation.
+The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data or data transformed so that they are normal.^[We will discuss transformations at a later time.] However, there are instances where the mean is not an appropriate measure to use, even when the data is normal. Alternatives to the mean are also presented below.
 
-The arithmetic mean is sensitive to *outliers*. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. Outliers can significantly influence the mean.
+### Mean (Arithmetic)
+More commonly called an *average*. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the *arithmetic mean* because there are other methods for calculating a mean. The [*geometric mean*](https://en.wikipedia.org/wiki/Geometric_mean) for example is the *n-*th root of the product of the data points. The geometric mean is used in the INR calculation in coagulation.
 
-In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.
+The arithmetic mean is sensitive to *outliers*. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. The gap betweem the two lines is an example of how an outliers can significantly influence the mean.
 
 ```{r, outlier}
 # set seed to ensure "randomly" generated values
@@ -88,7 +94,7 @@ seriesWithOutOutlier <- rnorm(10, mean = 100, sd = 10)
 seriesWithOutOutlier_mean <- mean(seriesWithOutOutlier) 
 
 # add an outlier to the series
-seriesWithOutlier <- c(seriesWithOutOutlier,300)
+seriesWithOutlier <- c(seriesWithOutOutlier, 300)
 ```
 ```{r, outlierFig, echo=FALSE, fig.align='center', fig.width=6, fig.height=4}
 # plot this data
@@ -97,7 +103,9 @@ abline(h=seriesWithOutOutlier_mean, col="red", lty = 2)
 abline(h=mean(seriesWithOutlier), col = "blue", lty = 2)
 ```
 
-## Median
+In cases where there are a significant number of outliers, a different measure would need to be utilized. An alternative to the mean is the median.
+
+### Median
 
 If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an  odd number of points. For an even number of points, the arithmetic mean of the two middle points will be the median.
 
@@ -111,7 +119,7 @@ abline(h=seriesWithOutOutlier_mean, col="red", lty = 2)
 abline(h=mean(seriesWithOutlier), col = "blue", lty = 2)
 ```
 
-## Mode 
+### Mode 
 
 The mode is the most frequent value in a series. Mode is most often used for categorical or discrete data. 
 
@@ -127,7 +135,7 @@ colnames(df) <- c("Cell Type", "Count")
 df %>% kable("html") %>% kable_styling(full_width = FALSE)
 ```
 
-An issue with using mode is that it is not always unique. We could, for example have the same count for neutrophils and lymphocytes when performing a differential. 
+We need to keep in mind that the mode is not always unique. We could, for example have the same count for neutrophils and lymphocytes when performing a differential. 
 
 ```{r echo=FALSE}
 counts <- c(37, 37, 9, 7, 10)
@@ -140,7 +148,7 @@ df %>% kable("html") %>% kable_styling(full_width = FALSE)
 
 This is why mode is seldom used for continuous variables. Consider measuring the glucose level of 30 people. How likely is it for two or more people to have **exactly** the same glucose level (e.g. 94.5 mmol/L)? 
 
-# Measures of Dispersion
+## Measures of Dispersion
 
 Measures of dispersion attempt to describe how far away the points are from the center. Consider the figure below:
 
@@ -155,14 +163,72 @@ p2 <- ggplot(plottable, aes(x=value, fill = variable)) +
 p2
 ```
 
-The mean for both distributions are the same ^[Approximately zero, but not exactly equal because we used a psuedorandom number generator], but the points of the taller peak is less "dispersed" than the other. So let's talk about how dispersion is measured below.
+The mean for both distributions is the same ^[Approximately zero, but not exactly equal because we used a psuedorandom number generator], but the points of the taller peak is less spread out, "dispersed", than the shorter, more squat curve. 
 
-## Variance
+### Standard Deviation & Variance
 
-Variance measures variability from the mean. It is a measure of how far each number in a set is from the mean, hence also from every other number in the set. The symbol for variance is $\sigma^2$. The formula for variance is:
+Standard deviation ($\sigma$) and variance ($\sigma^2$) are grouped together because one can be derived from the other. 
 
-$$\sigma^2 = \frac{\sum^{n}_{i=1}(x_i - x)^2}{n}$$
+They both measure how far each value is from the mean and thereby each other. These two measures differ in their units. Standard deviation is expressed in the same unit as the mean, while variance in expressed in squared units. For example, a normal distribution with $mean\  =\ 2$ and $\sigma = 4$, is equal to a normal distribution with $mean\  =\ 2$ and $\sigma^2 = 16$.
+$\sigma$.
 
-where $x_i=$ the $i^{th}$ data point, $x=$ the mean of all data points, $n=$ the number of data points.
+The formula for standard deviation is:
 
-A large variance indicates taht numbers in the set are from the mean and from each other. A small variance indicates the converse. A variance of zero indicates that all numbers in the set are identical. Variance can never be negative. 
+$$\sigma = \sqrt{\frac{\sum^{n}_{i=1}(x_i - x)^2}{n}}$$
+
+where $x_i=$ the $i^{th}$ data point, $x=$ the mean of all data points, $n=$ the number of data points. Squaring the standard deviation will give you the variance. Conversely, the square root of the variance is the standard deviation.
+
+A large standard deviation indicates that numbers in the set are spread out far from the mean and from each other. A small standard deviation indicates the converse. A standard deviation of zero indicates that there is no deviation from the mean. All individual data points are equal to the mean. Without getting too deep into the math of it, variance and standard deviation is always non-negative. These two values measure distance, and distance is always positive.
+
+### Coefficient of Variation
+
+The coefficient of variation is the ratio of the standard deviation to the mean of the data set. It is a standardized^[Standardization is the process of putting different variables or measures on the scale. This allows comparison between the different variables or measures.] measure of dispersion and is often expressed as a percentage.
+
+The formula for the coefficient of variation is:
+
+$$CV = \frac{\sigma}{\mu}*100$$
+where $\sigma=standard\ deviation$ and $\mu=\ mean$.
+
+Comparing standard deviation of two different data sets is sometimes meaningless. The coefficient of variation is useful for comparing the degree of variation of one data series to another even when the means of each data set are drastically different. 
+
+For example, let's say that we are evaluating two intruments that measure an analyte in different units, one in picograms and another in nanograms. We will chose the instrument with the lease amount of variability.
+
+```{r echo=FALSE}
+pg <- rnorm(10, mean = 0, sd = 5)
+ng <- pg/1000
+
+cv_df <- data.frame(cbind(pg,ng))
+
+colnames(cv_df) <- c("Picograms", "Nanograms")
+
+cv_df <- round(cv_df, digits = 3)
+
+cv_df %>% kable("html") %>% kable_styling(full_width = FALSE)
+```
+
+In this connived example, the measurements are similar, except they are in different units. The values from the picogram column was divided by 1000 to get the values in the nanogram column. 
+```{r echo=FALSE}
+pg_mean <- mean(pg)
+pg_sd <- sd(pg)
+pg_cv <- (pg_sd/pg_mean)*100
+
+ng_mean <- mean(ng)
+ng_sd <- sd(ng)
+ng_cv <- (ng_sd/ng_mean)*100
+
+summ <- data.frame (cbind(rbind(pg_mean, pg_sd, pg_cv), 
+                          rbind(ng_mean, ng_sd, ng_cv)))
+summ <- round(summ, digits = 3)
+
+colnames(summ) <- c("Picograms", "Nanograms")
+rownames(summ) <- c("Mean", "Standard Deviation", "Coefficient of Variation")
+
+summ %>% kable("html") %>% kable_styling(full_width = FALSE, 
+                                         bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+The mean and standard deviations for each column are drastically different. However, the coefficient of variation for each data set are equal.
+
+## Conclusion
+
+Most of the work we do in the lab involve the evaluation and interpretation of data. We learned about distributions and how their shape are based on the different measures of centrality and dispersion. We can now give our data shape, they no longer seem so abstract.
