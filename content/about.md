@@ -8,7 +8,7 @@ tags: []
 keywords:
   - tech
 comments: no
-showMeta: yes
+showMeta: no
 showActions: no
 ---
 
