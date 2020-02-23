@@ -80,7 +80,6 @@ p1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
                colour = c("#8B0000")) +
   geom_point(size = 3, pch = 21, fill=c("grey50")) +
   labs(x= "Reference Method", y="New Method") +
-  #geom_point(aes(y=predicted), shape = 1)+
   theme_bw()
 
 p1
