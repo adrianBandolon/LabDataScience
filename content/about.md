@@ -1,13 +1,14 @@
 ---
 title: About
 author: Adrian Bandolon
-date: '2020-02-09'
+date: '2020-02-23'
 slug: about
 categories: []
 tags: []
-keywords: []
+keywords:
+  - tech
 comments: no
-showMeta: no
+showMeta: yes
 showActions: no
 ---
 

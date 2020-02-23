@@ -68,7 +68,7 @@ Most method comparisons studies will have a limited number of samples, especiall
 OLS assumes that the values in $x-$axis were measured without error and the variance of $y$ is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the $x-$axis since the values are pre-defined. In method comparisons both measurements on the $x-$ and $y-$axis have error.
 
 The residual of each point is the red segments in the figure below. The blue line is the linear regression line.
-```{r echo=TRUE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
+```{r echo=FALSE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
 fit <- lm(new_method ~ ref_method, data = dat)
 
 dat$predicted <- predict(fit)

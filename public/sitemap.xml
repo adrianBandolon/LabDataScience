@@ -13,6 +13,16 @@
   </url>
   
   <url>
+    <loc>/about/</loc>
+    <lastmod>2020-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
@@ -29,11 +39,6 @@
   
   <url>
     <loc>/2020/02/deming-and-passing-bablok-regressions/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -93,23 +98,18 @@
   </url>
   
   <url>
-    <loc>/tags/validation/</loc>
+    <loc>/categories/validation/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/validation/</loc>
+    <loc>/tags/validation/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/getting-started/</loc>
     <lastmod>2020-02-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
