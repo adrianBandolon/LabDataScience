@@ -5,8 +5,7 @@ date: '2020-02-09'
 slug: about
 categories: []
 tags: []
-keywords:
-  - tech
+keywords: []
 comments: no
 showMeta: no
 showActions: no

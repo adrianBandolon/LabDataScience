@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>regression on Lab Data Science</title>
+    <title>Regression on Lab &amp; Data Science</title>
     <link>/tags/regression/</link>
-    <description>Recent content in regression on Lab Data Science</description>
+    <description>Recent content in Regression on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Deming and Passing-Bablok Regressions</title>
+      <link>/2020/02/deming-and-passing-bablok-regressions/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2015/07/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <guid>/2020/02/deming-and-passing-bablok-regressions/</guid>
+      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
+In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
+We will be using the ggplot2 R library to generate plots.</description>
     </item>
     
   </channel>

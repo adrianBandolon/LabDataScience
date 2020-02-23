@@ -1,0 +1,150 @@
+---
+title: Deming and Passing-Bablok Regressions
+author: Adrian Bandolon
+date: '2020-02-22'
+slug: deming-and-passing-bablok-regressions
+categories:
+  - Laboratory
+  - Validation
+  - Method Comparison
+tags:
+  - R
+  - Statistics
+  - Validation
+  - CLSI
+  - least squares
+  - Deming
+  - method comparison
+  - Passing Bablok
+  - method validation
+  - Regression
+keywords:
+  - validation
+  - method validation
+  - passing-bablok
+  - regression
+  - deming
+  
+coverMeta: out
+coverImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603.jpg
+thumbnailImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603thumb.jpg
+thumbnailImagePosition: top
+draft: true
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p><strong>Deming</strong> and <strong>Passing-Bablok</strong> regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a <em>reference</em> method to the <em>new</em> method.</p>
+<p>In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and <strong>ordinary-least-squares (OLS)</strong> regression.</p>
+<p>We will be using the <code>ggplot2</code> R library to generate plots. We will use the <code>mcr</code> libary to perform Deming and Passing-Bablok regressions. A special library is not required for OLS since it is part of R’s <code>base</code> package. <code>dplyr</code> and <code>kableExtra</code> are miscellaneous libraries that I use to manipulate data and for rendering tables.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. There are 30 rows in this data set. Here is the first six rows:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+specID
+</th>
+<th style="text-align:right;">
+new_method
+</th>
+<th style="text-align:right;">
+ref_method
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A2
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+140
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A3
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+140
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A4
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A5
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+137
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A6
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+136
+</td>
+</tr>
+</tbody>
+</table>
+<p>Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. Typically, 20-30 samples are used for method comparison depending on manufacturer recommendations.</p>
+</div>
+<div id="ordinary-least-square-regression" class="section level2">
+<h2>Ordinary-Least-Square Regression</h2>
+<p><strong>Ordinary-Least-Squares (OLS)</strong> estimates the parameters in a regression model by minimizing the sum of the squared <strong>residuals</strong>. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The regression line is selected so that the sum of squares of the residual is minimized. OLS is explained <a href="http://setosa.io/ev/ordinary-least-squares-regression/">here</a> interactively and in greater detail.</p>
+<p>OLS assumes that the values in <span class="math inline">\(x-\)</span>axis were measured without error and the variance of <span class="math inline">\(y\)</span> is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the <span class="math inline">\(x-\)</span>axis since the values are pre-defined. In method comparisons both measurements on the <span class="math inline">\(x-\)</span> and <span class="math inline">\(y-\)</span>axis have error.</p>
+<p>The residual of each point is the red segments in the figure below. The blue line is the linear regression line.</p>
+<pre class="r"><code>fit &lt;- lm(new_method~ref_method, data = dat)   
+
+dat$predicted &lt;- predict(fit)
+dat$residuals &lt;- residuals(fit)
+
+p1 &lt;- ggplot(dat, aes(x = ref_method, y = new_method)) +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE, color = c(&quot;#104E8B&quot;)) +
+  geom_segment(aes(xend = ref_method, yend = predicted),
+               colour = c(&quot;#8B0000&quot;)) +
+  geom_point(size = 3, pch = 21, fill=c(&quot;grey50&quot;)) +
+  labs(x= &quot;Reference Method&quot;, y=&quot;New Method&quot;) +
+  #geom_point(aes(y=predicted), shape = 1)+
+  theme_bw()
+
+p1</code></pre>
+<p><img src="/post/2020-02-22-deming-and-passing-bablok-regressions_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>

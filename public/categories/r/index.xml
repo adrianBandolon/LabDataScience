@@ -6,7 +6,7 @@
     <description>Recent content in R on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,16 +18,6 @@
       
       <guid>/2020/02/motivation/</guid>
       <description>In the current paradigm, laboratories, especially clinical laboratories are designed to be data producers. When I say “clinical laboratory” I am referring to laboratories that have very limited reasearch functions. These type of laboratories typically provide services for hospitals, clinics or is a referrence lab for specialized testing. These laboratories churn out thousands of columns and millions of rows of structured data daily, yet most of it remains unused within the laboratory.</description>
-    </item>
-    
-    <item>
-      <title>Statistics Basics</title>
-      <link>/2020/02/statistics-basics/</link>
-      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/02/statistics-basics/</guid>
-      <description>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory.
-We will first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</description>
     </item>
     
   </channel>

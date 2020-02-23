@@ -7,17 +7,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.64.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Adrian Bandolon">
-<meta name="keywords" content="">
+<meta name="keywords" content=", R, Statistics">
 <meta name="description" content="An Amalgam Of Lab and Data Science">
 
 
 <meta property="og:description" content="An Amalgam Of Lab and Data Science">
 <meta property="og:type" content="website">
-<meta property="og:title" content="regression">
-<meta name="twitter:title" content="regression">
+<meta property="og:title" content="Regression">
+<meta name="twitter:title" content="Regression">
 <meta property="og:url" content="/tags/regression/">
 <meta property="twitter:url" content="/tags/regression/">
-<meta property="og:site_name" content="Lab Data Science">
+<meta property="og:site_name" content="Lab &amp; Data Science">
 <meta property="og:description" content="An Amalgam Of Lab and Data Science">
 <meta name="twitter:description" content="An Amalgam Of Lab and Data Science">
 <meta property="og:locale" content="en-us">
@@ -39,7 +39,7 @@
   <meta property="twitter:image" content="/images/reserved-seat.jpg">
 
 
-    <title>regression</title>
+    <title>Regression</title>
 
     <link rel="icon" href="/favicon.png">
     
@@ -56,8 +56,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="/css/style-vftzew5nnzix5wjuvynstd8g1224lcxvwykk3mfjnlzkrccydtvcz9hce.min.css" />
     
+    
+      
+        <link rel="stylesheet"  href="/css/monokai-sublime.min.css">
+      
     
 
     
@@ -68,13 +72,12 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="/">Lab Data Science</a>
-  </div>
-  
-    
+      <header id="header" data-behavior="">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20/%20">Lab &amp; Data Science</a>
+    </div>
+     
       <a class="header-right-picture "
          href="/#about">
     
@@ -84,11 +87,9 @@
         <img class="header-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
       
     
-    </a>
-  
+    </a> 
 </header>
-
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="1">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -96,6 +97,8 @@
           <img class="sidebar-profile-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Adrian Bandolon</h4>
+        
+          <h5 class="sidebar-profile-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></h5>
         
       </div>
     
@@ -198,7 +201,7 @@
         
 
       
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="1"
         class="
                hasCoverMetaIn
                ">
@@ -209,30 +212,32 @@
               
   
     
-      
-        
-      
-    
   
 
 
   
 
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+<article class="postShorten postShorten--thumbnailimg-top" itemscope itemType="http://schema.org/BlogPosting">
   <div class="postShorten-wrap">
+    
+      <a href="/2020/02/deming-and-passing-bablok-regressions/">
+        <div class="postShorten-thumbnailimg">
+          <img alt="" itemprop="image" src="/post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603thumb.jpg"/>
+        </div>
+      </a>
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2015/07/hello-r-markdown/">
-          Hello R Markdown
+        <a class="link-unstyled" href="/2020/02/deming-and-passing-bablok-regressions/">
+          Deming and Passing-Bablok Regressions
         </a>
       </h1>
       
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2015-07-23T21:13:14-05:00">
+      <time itemprop="datePublished" datetime="2020-02-22T00:00:00Z">
         
-  July 23, 2015
+  February 22, 2020
 
       </time>
     
@@ -241,7 +246,11 @@
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/r">R</a>
+      <a class="category-link" href="/categories/laboratory">Laboratory</a>, 
+    
+      <a class="category-link" href="/categories/validation">Validation</a>, 
+    
+      <a class="category-link" href="/categories/method-comparison">Method Comparison</a>
     
   
 
@@ -250,12 +259,12 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.
+        Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
+In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
+We will be using the ggplot2 R library to generate plots.
       
       <p>
-        <a href="/2015/07/hello-r-markdown/" class="postShorten-excerpt_link link">Continue reading</a>
+        <a href="/2020/02/deming-and-passing-bablok-regressions/" class="postShorten-excerpt_link link">Continue reading</a>
         
       </p>
     </div>
@@ -269,15 +278,13 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           </section>
         
         <footer id="footer" class="main-content-wrap">
-  <span class="copyrights">
+    <span class="copyrights">
     &copy; 2020 <a href="https://github.com/adrianBandolon">spyrokete</a>. All Rights Reserved
   </span>
 </footer>
-
       </div>
     </div>
-    
-    <div id="about">
+  <div id="about">
   <div id="about-card">
     <div id="about-btn-close">
       <i class="fa fa-remove"></i>
@@ -286,6 +293,8 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <img id="about-card-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Adrian Bandolon</h4>
+    
+      <div id="about-card-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></div>
     
     
       <div id="about-card-job">
@@ -303,26 +312,23 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
   </div>
 </div>
-
-    
-
-    
+ 
+ 
   
     
       <div id="cover" style="background-image:url('/images/2135.jpg');"></div>
     
   
 
-
-    
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+  <script src="/js/highlight.pack.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="/js/script-zxy7pbbie31nwbxgzdealf5naxpk7u49jtl9drzt4uyaf82ceryugsbhp.min.js"></script>
 
 
 <script lang="javascript">
@@ -355,8 +361,7 @@ $(document).ready(function() {
 
 
 
+ 
+</body>
 
-    
-  </body>
 </html>
-

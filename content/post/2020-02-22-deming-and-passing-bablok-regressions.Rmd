@@ -1,0 +1,89 @@
+---
+title: Deming and Passing-Bablok Regressions
+author: Adrian Bandolon
+date: '2020-02-22'
+slug: deming-and-passing-bablok-regressions
+categories:
+  - Laboratory
+  - Validation
+  - Method Comparison
+tags:
+  - R
+  - Statistics
+  - Validation
+  - CLSI
+  - least squares
+  - Deming
+  - method comparison
+  - Passing Bablok
+  - method validation
+  - Regression
+keywords:
+  - validation
+  - method validation
+  - passing-bablok
+  - regression
+  - deming
+  
+coverMeta: out
+coverImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603.jpg
+thumbnailImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603thumb.jpg
+thumbnailImagePosition: top
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(package.startup.message = FALSE)
+library(ggplot2)
+library(knitr)
+library(dplyr)
+library(kableExtra)
+library(reshape2)
+library(mcr)
+```
+
+**Deming** and **Passing-Bablok** regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a *reference* method to the *new* method.
+
+In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and **ordinary-least-squares (OLS)** regression.
+
+We will be using the `ggplot2` R library to generate plots. We will use the `mcr` libary to perform Deming and Passing-Bablok regressions. A special library is not required for OLS since it is part of R's `base` package. `dplyr` and `kableExtra` are miscellaneous libraries that I use to manipulate data and for rendering tables.
+
+## Data
+
+Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. There are 30 rows in this data set. Here is the first six rows:
+
+```{r echo=FALSE}
+# read in the data
+dat <- data.frame(read.csv("data/demingPassingBablok/sodiumMethComp.csv"))
+# display top 6 values
+head(dat) %>% kable("html") %>% kable_styling(full_width = FALSE)
+```
+
+Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. Typically, 20-30 samples are used for method comparison depending on manufacturer recommendations.
+
+## Ordinary-Least-Square Regression
+
+**Ordinary-Least-Squares (OLS)** estimates the parameters in a regression model by minimizing the sum of the squared **residuals**. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The regression line is selected so that the sum of squares of the residual is minimized. OLS is explained [here](http://setosa.io/ev/ordinary-least-squares-regression/) interactively and in greater detail.
+
+OLS assumes that the values in $x-$axis were measured without error and the variance of $y$ is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the $x-$axis since the values are pre-defined. In method comparisons both measurements on the $x-$ and $y-$axis have error.
+
+The residual of each point is the red segments in the figure below. The blue line is the linear regression line.
+```{r echo=TRUE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
+fit <- lm(new_method~ref_method, data = dat)   
+
+dat$predicted <- predict(fit)
+dat$residuals <- residuals(fit)
+
+p1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
+  geom_smooth(method = "lm", se = FALSE, color = c("#104E8B")) +
+  geom_segment(aes(xend = ref_method, yend = predicted),
+               colour = c("#8B0000")) +
+  geom_point(size = 3, pch = 21, fill=c("grey50")) +
+  labs(x= "Reference Method", y="New Method") +
+  #geom_point(aes(y=predicted), shape = 1)+
+  theme_bw()
+
+p1
+```
+
+

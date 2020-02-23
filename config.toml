@@ -115,11 +115,12 @@ canonifyurls = true
   # add to every pages keywords = ["development", "next-gen"]
 
   # Syntax highlighter, possible choice between: "highlight.js" 
-  # (recommanded) and "prism.js" (experimental)
+  # (recommended) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
   syntaxHighlighter = "highlight.js"
-  customCSS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"]
-  customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"]
+  #customCSS = ["/css/monokai-sublime.min.css"]
+  #customCSS = ["css/mystyle.css"]
+  #customJS = ["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"]
   
 
   # Hide sidebar on all article page to let article take full width to 
@@ -194,8 +195,8 @@ canonifyurls = true
 
   # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
   # they have to be referred from static root. Example
-  #[[params.customCSS]]
-     #href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"
+  [[params.customCSS]]
+     href = "/css/monokai-sublime.min.css"
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
   #[[params.customJS]]

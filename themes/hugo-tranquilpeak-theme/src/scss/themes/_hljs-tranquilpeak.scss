@@ -1,12 +1,12 @@
 // Official theme for Tranquilpeak
 // Default code block
-pre > code {
+pre>code {
     background: map-get($highlight, 'background');
-    color:      map-get($highlight-colors, night-rider);
+    color: map-get($highlight-colors, night-rider);
 }
 
 // allow for horizontal scrolling of code blocks
-pre > code.codeblock {
+pre>code.codeblock {
     overflow-x: auto;
 }
 
@@ -18,28 +18,25 @@ code {
 // Tabbed code block tab
 .codeblock--tabbed figcaption .tab.active {
     background: map-get($colors, 'primary');
-    color:      white;
+    color: white;
 }
 
 // Highlight code block
 figure.highlight,
 .codeblock {
     background: map-get($highlight, 'background');
-    color:      map-get($highlight-colors, night-rider);
-
+    color: map-get($highlight-colors, night-rider);
     figcaption {
         background: map-get($highlight, 'background');
-        color:      #999999;
+        color: #999999;
     }
     .gutter {
-        background:         map-get($highlight, 'background');
+        background: map-get($highlight, 'background');
         border-right-color: #e6e6e6;
-
         .line {
             color: #aaaaaa;
         }
     }
-
     // Highlight code coloration
     // General
     .comment {
@@ -114,7 +111,7 @@ figure.highlight,
         .meta-keyword {
             color: map-get($highlight-colors, cardinal);
         }
-        .title  {
+        .title {
             color: map-get($highlight-colors, scampi);
         }
         .number,
@@ -172,15 +169,15 @@ figure.highlight,
     &.diff .code {
         .chunk,
         .meta {
-            color:       map-get($highlight-colors, scampi);
+            color: map-get($highlight-colors, scampi);
             font-weight: bold;
         }
         .addition {
-            color:            map-get($highlight-colors, limeade);
+            color: map-get($highlight-colors, limeade);
             background-color: map-get($highlight-colors, 'honeydew');
         }
         .deletion {
-            color:            map-get($highlight-colors, free-speech-red);
+            color: map-get($highlight-colors, free-speech-red);
             background-color: map-get($highlight-colors, misty-rose);
         }
     }
@@ -322,7 +319,6 @@ figure.highlight,
         .preprocessor,
         .meta {
             color: map-get($highlight-colors, cardinal);
-
             .title {
                 color: map-get($highlight-colors, persimmon);
             }
@@ -350,7 +346,6 @@ figure.highlight,
         .regexp {
             color: map-get($highlight-colors, persimmon);
         }
-
     }
     // PHP
     &.php .code {
@@ -543,8 +538,7 @@ figure.highlight,
     }
     // YAML
     &.yml {
-        .line
-        .attr {
+        .line .attr {
             color: map-get($highlight-colors, asparagus);
         }
         .line,

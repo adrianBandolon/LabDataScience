@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Validations on Lab &amp; Data Science</title>
+    <link>/categories/validations/</link>
+    <description>Recent content in Validations on Lab &amp; Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/validations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Method Comparison--Deming and Passing-Bablok Regressions</title>
+      <link>/2020/02/method-comparison-deming-and-passing-bablok-regressions/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/02/method-comparison-deming-and-passing-bablok-regressions/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

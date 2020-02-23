@@ -5,10 +5,8 @@ date: '2020-02-09'
 slug: motivation
 categories:
   - Getting Started
-  - R
 tags:
   - R
-  - R Markdown
 keywords:
   - laboratory
   - R
