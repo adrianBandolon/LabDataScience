@@ -69,17 +69,21 @@ OLS assumes that the values in $x-$axis were measured without error and the vari
 
 The residual of each point is the red segments in the figure below. The blue line is the linear regression line.
 ```{r echo=TRUE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
-fit <- lm(new_method~ref_method, data = dat)   
+fit <- lm(new_method ~ ref_method, data = dat)
 
 dat$predicted <- predict(fit)
 dat$residuals <- residuals(fit)
 
 p1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
-  geom_smooth(method = "lm", se = FALSE, color = c("#104E8B")) +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = c("#104E8B")) +
   geom_segment(aes(xend = ref_method, yend = predicted),
                colour = c("#8B0000")) +
-  geom_point(size = 3, pch = 21, fill=c("grey50")) +
-  labs(x= "Reference Method", y="New Method") +
+  geom_point(size = 3,
+             pch = 21,
+             fill = c("grey50")) +
+  labs(x = "Reference Method", y = "New Method") +
   theme_bw()
 
 p1

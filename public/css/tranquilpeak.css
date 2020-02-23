@@ -126,7 +126,7 @@ pre > code {
   cursor: text;
   overflow-x: auto;
   line-height: 2.7rem;
-  font-size: 1.4rem; }
+  font-size: 1.6rem; }
 
 code {
   font-size: 1.5rem;
@@ -1550,7 +1550,7 @@ figure.highlight,
     border-right: 1px solid;
     padding: 0.3em 15px;
     line-height: 2.3rem;
-    font-size: 1.4rem; }
+    font-size: 1.6rem; }
     figure.highlight .gutter pre,
     .codeblock .gutter pre {
       color: #aaaaaa; }
@@ -1561,14 +1561,14 @@ figure.highlight,
     figure.highlight .code pre,
     .codeblock .code pre {
       line-height: 2.3rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       max-width: calc(750px - 50px);
       overflow-x: auto;
       overflow-y: hidden; }
   figure.highlight .line,
   .codeblock .line {
     height: 2.3rem;
-    font-size: 1.4rem; }
+    font-size: 1.6rem; }
 
 .codeblock--tabbed figure.highlight,
 .codeblock--tabbed pre > code {

@@ -108,7 +108,7 @@ We will be using the ggplot2 R library to generate plots.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-jdkx48neacigslphdv8xc12hahkyjjlyb1hspva5aaenh5p8v7koxzwxyv.min.css" />
+    <link rel="stylesheet" href="/css/style-sjyarq28c2ax5mckg3aq9laxbhwnjkjhb0nrgp3qo1m8aazephom005uhn.min.css" />
     
     
       
@@ -403,17 +403,21 @@ A6
 <p><strong>Ordinary-Least-Squares (OLS)</strong> estimates the parameters in a regression model by minimizing the sum of the squared <strong>residuals</strong>. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The regression line is selected so that the sum of squares of the residual is minimized. OLS is explained <a href="http://setosa.io/ev/ordinary-least-squares-regression/">here</a> interactively and in greater detail.</p>
 <p>OLS assumes that the values in <span class="math inline">\(x-\)</span>axis were measured without error and the variance of <span class="math inline">\(y\)</span> is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the <span class="math inline">\(x-\)</span>axis since the values are pre-defined. In method comparisons both measurements on the <span class="math inline">\(x-\)</span> and <span class="math inline">\(y-\)</span>axis have error.</p>
 <p>The residual of each point is the red segments in the figure below. The blue line is the linear regression line.</p>
-<pre class="r"><code>fit &lt;- lm(new_method~ref_method, data = dat)   
+<pre class="r"><code>fit &lt;- lm(new_method ~ ref_method, data = dat)
 
 dat$predicted &lt;- predict(fit)
 dat$residuals &lt;- residuals(fit)
 
 p1 &lt;- ggplot(dat, aes(x = ref_method, y = new_method)) +
-  geom_smooth(method = &quot;lm&quot;, se = FALSE, color = c(&quot;#104E8B&quot;)) +
+  geom_smooth(method = &quot;lm&quot;,
+              se = FALSE,
+              color = c(&quot;#104E8B&quot;)) +
   geom_segment(aes(xend = ref_method, yend = predicted),
                colour = c(&quot;#8B0000&quot;)) +
-  geom_point(size = 3, pch = 21, fill=c(&quot;grey50&quot;)) +
-  labs(x= &quot;Reference Method&quot;, y=&quot;New Method&quot;) +
+  geom_point(size = 3,
+             pch = 21,
+             fill = c(&quot;grey50&quot;)) +
+  labs(x = &quot;Reference Method&quot;, y = &quot;New Method&quot;) +
   theme_bw()
 
 p1</code></pre>
@@ -662,7 +666,7 @@ p1</code></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-8a0keldvgbx1veumn0ot0yo78wxm82zs6oduyl43zn0nduralzwkxfclf.min.js"></script>
+<script src="/js/script-dppsrf5gk9c7k2tdcstjhomkri1cukyiccnzxab3wsirarfqnx6shu43zkh.min.js"></script>
 
 
 <script lang="javascript">
