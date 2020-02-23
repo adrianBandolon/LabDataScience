@@ -168,7 +168,6 @@ The mean for both distributions is the same ^[Approximately zero, but not exactl
 Standard deviation ($\sigma$) and variance ($\sigma^2$) are grouped together because one can be derived from the other. 
 
 They both measure how far each value is from the mean and thereby each other. These two measures differ in their units. Standard deviation is expressed in the same unit as the mean, while variance in expressed in squared units. For example, a normal distribution with $mean\  =\ 2$ and $\sigma = 4$, is equal to a normal distribution with $mean\  =\ 2$ and $\sigma^2 = 16$.
-$\sigma$.
 
 The formula for standard deviation is:
 

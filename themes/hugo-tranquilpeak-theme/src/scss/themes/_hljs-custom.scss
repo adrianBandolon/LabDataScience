@@ -16,7 +16,9 @@ pre>code {
 
 // Default inline code
 code {
-    background-color: #e6f39e2f;
+    background-color: #ffffff00;
+    color: #2a0861;
+    padding: 0em;
 }
 
 // Tabbed code block tab
@@ -32,6 +34,7 @@ figure.highlight,
 .codeblock {
     background: #23241f;
     color: #f8f8f2;
+    border-radius: 10px;
     figcaption {
         background: #23241f;
         color: #f8f8f2;
