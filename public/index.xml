@@ -17,7 +17,8 @@
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/02/motivation/</guid>
-      <description>In the current paradigm, laboratories, especially clinical laboratories are designed to be data producers. When I say “clinical laboratory” I am referring to laboratories that have very limited reasearch functions. These type of laboratories typically provide services for hospitals, clinics or is a referrence lab for specialized testing. These laboratories churn out thousands of columns and millions of rows of structured data daily, yet most of it remains unused within the laboratory.</description>
+      <description>I currently manage a small laboratory and we recently had to conduct several method validations in a matter of weeks. It became apparent how dependent labs like mine, and even larger laboratories on the manufacturers when it came to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
+My goal here is to share what I’ve learned on how to collect, interpret and interact with data.</description>
     </item>
     
     <item>
@@ -39,6 +40,16 @@ We will first study probability distributions. In the process we will learn abou
       <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
 In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
 We will be using the ggplot2 R library to generate plots.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello and welcome! My name is Adrian Bandolon. I have been a Medical Technologist for over 15 years . In that time I have earned a PhD in Marine Biology and more recently, a Master&amp;rsquo;s in Computer Science specializing in Data Science.
+Currently, I manage a laboratory that provide services for a free-standing ED in South Texas. This blog will focus on statistics and data science applications in the laboratory and in my day-to-day.</description>
     </item>
     
   </channel>
