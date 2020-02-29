@@ -17,7 +17,7 @@
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/02/motivation/</guid>
-      <description>I currently manage a small laboratory and we recently had to conduct several method validations in a matter of weeks. It became apparent how dependent labs like mine, and even larger laboratories on the manufacturers when it came to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
+      <description>I currently manage a small laboratory. Recently we unexpectedly had to conduct several method validations in a matter of weeks. While working through these validations, it became apparent how dependent labs like mine, and even larger laboratories are on manufacturers with respect to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
 My goal here is to share what I’ve learned on how to collect, interpret and interact with data.</description>
     </item>
     
@@ -27,7 +27,7 @@ My goal here is to share what I’ve learned on how to collect, interpret and in
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/02/statistics-basics/</guid>
-      <description>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory.
+      <description>Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are commonly encountered in the laboratory.
 We will first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation).</description>
     </item>
     

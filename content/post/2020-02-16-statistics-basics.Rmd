@@ -19,7 +19,7 @@ autoThumbnailImage: no
 weight: 2
 ---
 
-Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are widely used in the laboratory. 
+Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are commonly encountered in the laboratory. 
 
 We will first study probability distributions. In the process we will learn about measures of central tendency (i.e. mean, mode, median) and measures of dispersion (i.e. variance, standard deviation, coefficient of variation). I won't go in great detail here. There are many tutorials out there that cover details more exhaustively.^[[Khan Academy](https://www.khanacademy.org/math/statistics-probability) for example.]
 
@@ -27,7 +27,7 @@ The goal here is define some common terms so that a data set can be viewed as ha
 
 ## Probability Distributions
 
-A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function, called a [probability density function (PDF)](https://en.wikipedia.org/wiki/Probability_density_function). The PDF of a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for example is:
+A probability distribution is simply a description of the probability of a random phenomenon occuring. This description is often expressed as a mathematical function, called a [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) for a continuous probability distribution and [probability mass function](https://en.wikipedia.org/wiki/Probability_mass_function) for a discrete probability distribution. The PDF of a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) for example is:
 
 $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} $$
 where $\mu$ is the mean of the distribution and $\sigma$ is its standard deviation. If we are to plot this function with $\mu = 0$ and $\sigma = 4.68$, it would look something like this:
@@ -51,8 +51,10 @@ df <- as.data.frame(cbind(df, df2))
 
 plottable <- as.data.frame(melt(df))
 
-p1 <- ggplot(plottable, aes(x=value)) + geom_density(fill="#473C8B", alpha = 0.5) + 
-    xlab("Value") + ylab("Density") + theme_linedraw()
+p1 <- ggplot(plottable, aes(x=value)) + 
+  geom_density(fill=c("darkseagreen2"), alpha = 0.5) + 
+  xlab("Value") + ylab("Density") + 
+  theme_linedraw()
 
 p1
 ```
@@ -63,24 +65,22 @@ Probability distributions are generally classified as either:
 
 2. **Continuous probability distribution** -- describes outcome probabilities of events that results from infinitely many possible values from a range of values without gaps.  This data can only be numeric. Most results we get in the chemistry department. The value you get for a glucose level, for example is considered a continuous data type. The most commonly encountered continuous probability distribution in the lab and out in the world is the *Normal* distribution also known as *Gaussian* distribution. In clinical chemistry we commonly encounter the *Log-Normal* distribution also.
 
-Every distribution function has parameters (e.g. mean, standard deviation). These parameters describe the shape of the distribution. Below we talk about how these parameters are obtained from the data and how they affect the shape of the distribution.
-
 ## Measures of Central Tendency
 
-A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution. In the figure below, $0$ is the most common value in a series of points ranging $-50$ to $50$.
+A measure of central tendency is a single value that attempts to summarize a distribution by identifying the central position within it. They represent the most common value in a distribution. In the figure below, $0$ is the most common value in a series of points ranging $-30$ to $30$.
 
 ```{r echo=FALSE, fig.width=2, fig.height=2, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
 p1 + geom_vline(xintercept=0, linetype = "dashed", colour = "red")
 ```
 
-The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data or data transformed so that they are normal.^[We will discuss transformations at a later time.] However, there are instances where the mean is not an appropriate measure to use, even when the data is normal. Alternatives to the mean are also presented below.
+The appropriate measure to use depends on the type of probability distribution you are working with. The mean or average is the most commonly encountered measure of central tendency in the lab. This is because we mostly work with the normally distributed data or data transformed so that they are normal.^[We will discuss transformations at a later time.] However, there are instances where the mean is not an appropriate measure to use, even when the data is normal. Alternatives are median and mode.
 
 ### Mean (Arithmetic)
 More commonly called an *average*. The arithmetic mean is determined by adding all the data points then dividing by the number of points. I specify the *arithmetic mean* because there are other methods for calculating a mean. The [*geometric mean*](https://en.wikipedia.org/wiki/Geometric_mean) for example is the *n-*th root of the product of the data points. The geometric mean is used in the INR calculation in coagulation.
 
 The arithmetic mean is sensitive to *outliers*. An outlier is a value that is unusual compared to the rest of the points. In the figure below the last (right most data point) is an outlier. The red line is the mean without accounting for the outlier. The blue line is the mean if the outlier is taken into account. The gap betweem the two lines is an example of how an outliers can significantly influence the mean.
 
-```{r, outlier}
+```{r, outlier, echo=FALSE}
 # set seed to ensure "randomly" generated values
 # are the same at each run
 set.seed(123)
@@ -105,7 +105,7 @@ In cases where there are a significant number of outliers, a different measure w
 
 ### Median
 
-If a series is sorted in order of magnitude, the median is the middle value. This works well if there are an  odd number of points. For an even number of points, the arithmetic mean of the two middle points will be the median.
+If a set of points is sorted in order of magnitude, the median is the middle value. This works well if there are an  odd number of points. For an even number of points, the arithmetic mean of the two middle points will be the median.
 
 The median is less affected by outliers and skewed data. In the figure below, the median lies directly over the mean (faint black line) of the series where the outlier was not included. The median was not affected by the outlier at all.
 
@@ -152,8 +152,8 @@ Measures of dispersion attempt to describe how far away the points are from the 
 
 ```{r echo=FALSE, fig.width=2, fig.height=2, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
 p2 <- ggplot(plottable, aes(x=value, fill = variable)) + 
-  geom_density(alpha = 0.5) + 
-  scale_fill_manual(values = c("#473C8B", "#FF4040"))+
+  geom_density(alpha = 0.7) + 
+  scale_fill_brewer(palette = "Accent")+
   xlab("Value") + ylab("Density") +
   theme_linedraw() +
   theme(legend.position = "none") 

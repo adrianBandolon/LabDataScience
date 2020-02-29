@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>method validation on Lab &amp; Data Science</title>
+    <title>Method Validation on Lab &amp; Data Science</title>
     <link>/tags/method-validation/</link>
-    <description>Recent content in method validation on Lab &amp; Data Science</description>
+    <description>Recent content in Method Validation on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
@@ -17,9 +17,8 @@
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/02/deming-and-passing-bablok-regressions/</guid>
-      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
-We will be using the ggplot2 R library to generate plots.</description>
+      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.</description>
     </item>
     
   </channel>

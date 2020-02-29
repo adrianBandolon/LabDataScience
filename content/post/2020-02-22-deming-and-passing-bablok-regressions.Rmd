@@ -12,11 +12,11 @@ tags:
   - Statistics
   - Validation
   - CLSI
-  - least squares
+  - Least Squares
   - Deming
-  - method comparison
+  - Method Comparison
   - Passing Bablok
-  - method validation
+  - Method Validation
   - Regression
 keywords:
   - validation
@@ -42,51 +42,85 @@ library(reshape2)
 library(mcr)
 ```
 
-**Deming** and **Passing-Bablok** regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a *reference* method to the *new* method.
+**Deming** and **Passing-Bablok** regressions are used to compare two quantitative methods. They are used to compare a *reference* method to the *new* method. Depending on the data structure, one of these two regression methods is used a part of a validation study. 
 
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and **ordinary-least-squares (OLS)** regression.
+Deming and Passing-Bablok regressions are variations of an **ordinary-least-squares (OLS)** linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression. Along the way, we will mention the crucial differences between these three types of regression techniques.
 
-We will be using the `ggplot2` R library to generate plots. We will use the `mcr` libary to perform Deming and Passing-Bablok regressions. A special library is not required for OLS since it is part of R's `base` package. `dplyr` and `kableExtra` are miscellaneous libraries that I use to manipulate data and for rendering tables.
+### A little about R code structure
+
+In my posts, I will be sharing related R code. In this site these code chunks will appear in a box with a dark background. If I did my job correctly, the code will also have color highlighting. I tried to choose subtle colors, but that defeats the purpose of "highlighting".  
+
+Code that start with "`#`" are comments that are not evaluated. They are used as reminders or for descriptions. I try to name program variables descriptively and sensibly (e.g. `plot_1` for the first plot). This is best practice, as this makes it easier for me or someone else to review my code in the future. This also keeps me from having to put too many comments. But, I realize that some of you may not or have little coding experience. Because of this, I will be extensively adding comments to the code chunks that are on my posts.
+
+Here is an example code chunk:
+```{r eval=FALSE}
+library(ggplot2) #for generating plots
+library(dplyr) #for data structure manipulation and more
+library(kableExtra) #for rendering html tables
+library(mcr) #will use 'deming' and 'PaBa' functions from here
+```
+
+As you can see, we will be using the `ggplot2` R library to generate plots. We will use the `mcr` library to perform Deming and Passing-Bablok regressions. A special library is not required for OLS as it is part of R's `base` package. `dplyr` and `kableExtra` are libraries we will be using to manipulate data and for rendering tables.
+
+
 
 ## Data
 
-Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. There are 30 rows in this data set. Here is the first six rows:
+Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. The reference method was a chemistry analyzer and the new method was a point-of-care meter. There are 30 rows in this data set. Here is the first six rows:
 
-```{r echo=FALSE}
-# read in the data
+```{r}
+# read in the data and save to dataframe called "dat"
 dat <- data.frame(read.csv("data/demingPassingBablok/sodiumMethComp.csv"))
 # display top 6 values
 head(dat) %>% kable("html") %>% kable_styling(full_width = FALSE)
 ```
 
-Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. Typically, 20-30 samples are used for method comparison depending on manufacturer recommendations.
+Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. CLSI requires a minimum of 20 samples for method comparisons. Typically, 25-30 samples are analyzed to avoid not having enough data (<20 data points) because of outliers or some kind of measurement or clerical error. Besides more data points not only looks better graphically, but it also adds statistical [power](https://en.wikipedia.org/wiki/Power_(statistics))^[We will look at statistical power much closer in another post.] to your analysis.
 
 ## Ordinary-Least-Square Regression
 
-**Ordinary-Least-Squares (OLS)** estimates the parameters in a regression model by minimizing the sum of the squared **residuals**. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The regression line is selected so that the sum of squares of the residual is minimized. OLS is explained [here](http://setosa.io/ev/ordinary-least-squares-regression/) interactively and in greater detail.
+**Ordinary-Least-Squares (OLS)** regression estimates the parameters in a regression model by minimizing the sum of the squared **residuals**. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The residual is the difference between the actual and the predicted values of the dependent variable. 
 
-OLS assumes that the values in $x-$axis were measured without error and the variance of $y$ is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the $x-$axis since the values are pre-defined. In method comparisons both measurements on the $x-$ and $y-$axis have error.
+The regression line is selected so that the sum of squares of the residual is minimized.^[OLS is explained [here](http://setosa.io/ev/ordinary-least-squares-regression/) interactively and in greater detail.] In the figure below, the regression line (blue line) is the line that has the smallest sum of squared distances of the red segments. In the background, the regression line is "selected" from multiple lines based on having the smallest sum of squared distances (residuals). This is why the regression line is often referred to as the "best fit" line.
 
-The residual of each point is the red segments in the figure below. The blue line is the linear regression line.
-```{r echo=FALSE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
+In a simple linear regression, with only one variable, the model looks like this:
+
+$$y_i = \alpha + \beta x_{i} + \varepsilon_i$$
+where $i$ is the $i^{th}$ data point, $\alpha$ is the y-intercept, $\beta$ is the slope and $\varepsilon$ is the measurement error on the $y-$axis. OLS assumes that the values in the $x-$axis were measured without error and the variance of $y$ is constant (homoscedastic). In method comparisons, both $x-$ and $y-$ axes have errors that OLS does not take into account. 
+
+OLS is appropriate for calibrations and linearity verifications. In these cases there is little error on the $x-$axis since calibrator or linearity values are pre-defined and their ranges are often very narrow. 
+
+In the figure below the residual of each point are the red segments. The blue line is the linear regression line.
+
+```{r echo=TRUE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
+# build a linear regression model using the lm function
 fit <- lm(new_method ~ ref_method, data = dat)
-
+# extract predicted values
 dat$predicted <- predict(fit)
+# extract residuals from the model
 dat$residuals <- residuals(fit)
 
-p1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
+# plot the data.
+plot_1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
+  # add regression line
   geom_smooth(method = "lm",
-              se = FALSE,
+              # do not display the confidence interval
+              se = FALSE, 
               color = c("#104E8B")) +
+  # add the residuals segments
   geom_segment(aes(xend = ref_method, yend = predicted),
                colour = c("#8B0000")) +
+  # add the points
   geom_point(size = 3,
              pch = 21,
              fill = c("grey50")) +
+  # add x and y-axis labels
   labs(x = "Reference Method", y = "New Method") +
+  # use ggplot2 theme_bw for graph
   theme_bw()
 
-p1
+# display the plot
+plot_1
 ```
 
 

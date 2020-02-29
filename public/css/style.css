@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500i,700&display=swap");
 @font-face {
-  font-family: 'Hack';
+  font-family: 'Hack', monospace;
   font-style: normal;
   font-weight: 400;
-  src: local("Hack"); }
+  src: local("Hack"), href= "//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css"; }
 
 html {
   font-family: "Playfair Display", serif;
@@ -120,7 +120,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: Hack, Consolas, monospace;
+  font-family: Hack, monospace;
   border: none;
   margin: 0;
   cursor: text;
@@ -131,7 +131,7 @@ pre > code {
 code {
   font-size: 1.5rem;
   display: inline-block;
-  font-family: "Hack", Consolas, monospace;
+  font-family: "Hack", monospace;
   font-weight: 400;
   background-color: #f7f8f8;
   padding: 0 10px; }
@@ -1524,7 +1524,7 @@ figure.highlight,
   .codeblock .code,
   .codeblock .tag {
     background-color: inherit;
-    font-family: Hack, Consolas, monospace;
+    font-family: Hack, monospace;
     border: none;
     padding: 0;
     margin: 0;
@@ -1591,7 +1591,7 @@ figure.highlight,
 
 .gist .line,
 .gist .line-number {
-  font-family: "Hack", Consolas, monospace;
+  font-family: "Hack", monospace;
   font-size: 1em;
   margin: 0 0 5px 0; }
 

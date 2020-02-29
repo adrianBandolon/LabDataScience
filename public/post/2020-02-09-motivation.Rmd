@@ -21,14 +21,14 @@ thumbnailImagePosition: top
 weight: 1
 ---
 
-I currently manage a small laboratory and we recently had to conduct several method validations in a matter of weeks. It became apparent how dependent labs like mine, and even larger laboratories on the manufacturers when it came to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
+I currently manage a small laboratory. Recently we unexpectedly had to conduct several method validations in a matter of weeks. While working through these validations, it became apparent how dependent labs like mine, and even larger laboratories are on manufacturers with respect to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
 
-My goal here is to share what I've learned on how to collect, interpret and interact with data. I would also like to share about the creative use of data to answer questions in our day-to-day. At the start, I wil not delve too deeply into data science applications in lab. Maybe in later posts. For now, I want to tackle the more common instances in the lab where knowledge of statistics will be useful, maybe even required.
+My goal here is to share what I've learned on how to collect, interpret and interact with data. I would also like to share about the creative use of data to answer questions in our day-to-day. I know that it is in the site's name, but at the start, I will not delve too deeply into data science applications in lab. Maybe in later posts. For now, I want to tackle more common instances in the lab where knowledge of statistics will be useful, maybe even required.
 
-As much as I'd like to sound altruistic, this site also serves as a repository for things I wonder about and possible solutions to problems I'd like to solve. This will serve as my lab notebook, a place that I can go back to when encountered by a similar problem. More importantly, I hope that by sharing what I know, I can learn from all of you. I practically live in Nothern Mexixo^[Not really. I am still 2 hours away from the border], and in my own world. I would really like to hear about elegant solutions, novel ideas and interesting stories from outside this tiny world of mine.
+As much as I'd like to sound altruistic, this site also serves as a repository for things I wonder about and possible solutions to problems I'd like to solve. This is my lab notebook, a place that I can go back to when encountered by a similar problem. More importantly, I hope that by sharing what I know, I can learn from all of you. I practically live in Northern Mexico^[Not really. I am still 2 hours away from the border], and in my own world. I would really like to hear about elegant solutions, novel ideas and interesting stories from outside this tiny world of mine.
 
 
-# Background
+# Background 
 
 I have been a *Medical Technologist (MT)* ^[I think *MT*'s are called *Medical Laboratory Scientists (MLS)* now] for over 15 years. I currently manage a laboratory that provides services for a 12-bed free-standing ER. On average, the ER sees 70 patients in a 24-hour period. 
 
@@ -38,8 +38,8 @@ It wasn't until I was in graduate school that I became interested in statistics 
 
 I will using `R` ([https://cran.r-project.org/](https://cran.r-project.org/)), along with `RStudio` (a graphical interface for `R`) for most of my posts here. In fact, this whole site was built using an `R` package called [`blogdown`](https://bookdown.org/yihui/blogdown/) and a static html generator called [`Hugo`](https://gohugo.io/). Every now and again I may use another programming language similar to `R`, called `Python`. These two languages are the most popularly used languages in data science.
 
-I've opted to use `R` and `Python` despite being uncommon software tools in the laboratory because of their accessibility and flexibility.  `R` and `Python` are **FREE!!** Even though Microsoft Excel more ubiquitous, it has very limited useful functionality for our purposes. Standard data analytics software in the lab, like EP Evaluator require a license, which is impractical for me to get. I also can't afford the license.
+I've opted to use `R` and `Python` despite being uncommon software tools in the laboratory because of their accessibility and flexibility.  The most attractive aspects of these two languages is they are **FREE!!** Even though Microsoft Excel is more ubiquitous, it has very limited useful functionality for our purposes. Standard data analytics software in the lab, like EP Evaluator require a license, which is impractical for me to get.
 
-`R` and `Python` offers lots of flexibility, but they have very steep learning curves. Getting over the learning curve is well worth the time and effort. These two languages are the way of the future. Most, if not all machine learning and artificial intelligence program out in the world is written in either `R` or `Python`. In time, I hope to convince your to spend some time learning either language.
+`R` and `Python` offers lots of flexibility, but they have very steep learning curves. What you don't pay in money, you may in effort and time. However, getting over the learning curve is well worth all the time and effort. These two languages are the way of the future. Most, if not all machine learning and artificial intelligence program out in the world is written in either `R` or `Python`. Learing either or both language can future proof you career. In time, I hope to convince of this.
 
 I will talk more about `R` and `Python` on another post, and show you some examples of the possibilities. Until then, thank you for reading down this far. Keep in touch, comment down below and have a wonderful day!

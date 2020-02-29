@@ -8,26 +8,22 @@
 <meta name="generator" content="Hugo 0.64.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Adrian Bandolon">
 <meta name="keywords" content="validation, method validation, passing-bablok, regression, deming, R, Statistics">
-<meta name="description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
-We will be using the ggplot2 R library to generate plots.">
+<meta name="description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.">
 
 
-<meta property="og:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
-We will be using the ggplot2 R library to generate plots.">
+<meta property="og:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deming and Passing-Bablok Regressions">
 <meta name="twitter:title" content="Deming and Passing-Bablok Regressions">
 <meta property="og:url" content="/2020/02/deming-and-passing-bablok-regressions/">
 <meta property="twitter:url" content="/2020/02/deming-and-passing-bablok-regressions/">
 <meta property="og:site_name" content="Lab &amp; Data Science">
-<meta property="og:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
-We will be using the ggplot2 R library to generate plots.">
-<meta name="twitter:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a reference method to the new method.
-In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and ordinary-least-squares (OLS) regression.
-We will be using the ggplot2 R library to generate plots.">
+<meta property="og:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.">
+<meta name="twitter:description" content="Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.">
 <meta property="og:locale" content="en-us">
 
   
@@ -56,15 +52,15 @@ We will be using the ggplot2 R library to generate plots.">
     
       <meta property="article:tag" content="CLSI">
     
-      <meta property="article:tag" content="least squares">
+      <meta property="article:tag" content="Least Squares">
     
       <meta property="article:tag" content="Deming">
     
-      <meta property="article:tag" content="method comparison">
+      <meta property="article:tag" content="Method Comparison">
     
       <meta property="article:tag" content="Passing Bablok">
     
-      <meta property="article:tag" content="method validation">
+      <meta property="article:tag" content="Method Validation">
     
       <meta property="article:tag" content="Regression">
     
@@ -108,7 +104,7 @@ We will be using the ggplot2 R library to generate plots.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-xoirh0vojog0vgefcemr9hiiojda3fwbxtob6vvmlaqnzjk2qvsyoqix5.min.css" />
+    <link rel="stylesheet" href="/css/style-x8rus58w7ioaaudqfxfutqecqxnfdcm6gaqsbo0i4dvddtu6w52ou4rx.min.css" />
     
     
 
@@ -306,12 +302,26 @@ We will be using the ggplot2 R library to generate plots.">
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p><strong>Deming</strong> and <strong>Passing-Bablok</strong> regressions are used to compare two quantitative methods. These two regression methods are typically used a part of a validation study. Typically, these are used to compare a <em>reference</em> method to the <em>new</em> method.</p>
-<p>In this post we will discuss Deming and Passing-Bablok regressions. We will also touch on the difference between Deming and Passing-Bablok regressions and <strong>ordinary-least-squares (OLS)</strong> regression.</p>
-<p>We will be using the <code>ggplot2</code> R library to generate plots. We will use the <code>mcr</code> libary to perform Deming and Passing-Bablok regressions. A special library is not required for OLS since it is part of R’s <code>base</code> package. <code>dplyr</code> and <code>kableExtra</code> are miscellaneous libraries that I use to manipulate data and for rendering tables.</p>
+<p><strong>Deming</strong> and <strong>Passing-Bablok</strong> regressions are used to compare two quantitative methods. They are used to compare a <em>reference</em> method to the <em>new</em> method. Depending on the data structure, one of these two regression methods is used a part of a validation study.</p>
+<p>Deming and Passing-Bablok regressions are variations of an <strong>ordinary-least-squares (OLS)</strong> linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression. Along the way, we will mention the crucial differences between these three types of regression techniques.</p>
+<div id="a-little-about-r-code-structure" class="section level3">
+<h3>A little about R code structure</h3>
+<p>In my posts, I will be sharing related R code. In this site these code chunks will appear in a box with a dark background. If I did my job correctly, the code will also have color highlighting. I tried to choose subtle colors, but that defeats the purpose of “highlighting”.</p>
+<p>Code that start with “<code>#</code>” are comments that are not evaluated. They are used as reminders or for descriptions. I try to name program variables descriptively and sensibly (e.g. <code>plot_1</code> for the first plot). This is best practice, as this makes it easier for me or someone else to review my code in the future. This also keeps me from having to put too many comments. But, I realize that some of you may not or have little coding experience. Because of this, I will be extensively adding comments to the code chunks that are on my posts.</p>
+<p>Here is an example code chunk:</p>
+<pre class="r"><code>library(ggplot2) #for generating plots
+library(dplyr) #for data structure manipulation and more
+library(kableExtra) #for rendering html tables
+library(mcr) #will use &#39;deming&#39; and &#39;PaBa&#39; functions from here</code></pre>
+<p>As you can see, we will be using the <code>ggplot2</code> R library to generate plots. We will use the <code>mcr</code> library to perform Deming and Passing-Bablok regressions. A special library is not required for OLS as it is part of R’s <code>base</code> package. <code>dplyr</code> and <code>kableExtra</code> are libraries we will be using to manipulate data and for rendering tables.</p>
+</div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. There are 30 rows in this data set. Here is the first six rows:</p>
+<p>Our data comes from a validation study I conducted recently. These are sodium results measured in mmol/L. The reference method was a chemistry analyzer and the new method was a point-of-care meter. There are 30 rows in this data set. Here is the first six rows:</p>
+<pre class="r"><code># read in the data and save to dataframe called &quot;dat&quot;
+dat &lt;- data.frame(read.csv(&quot;data/demingPassingBablok/sodiumMethComp.csv&quot;))
+# display top 6 values
+head(dat) %&gt;% kable(&quot;html&quot;) %&gt;% kable_styling(full_width = FALSE)</code></pre>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -395,14 +405,53 @@ A6
 </tr>
 </tbody>
 </table>
-<p>Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. Typically, 20-30 samples are used for method comparison depending on manufacturer recommendations.</p>
+<p>Most method comparisons studies will have a limited number of samples, especially for analytes where high or abnormal results are hard to come by. Troponin-I and drug levels like Acetaminophen are examples of such analytes. CLSI requires a minimum of 20 samples for method comparisons. Typically, 25-30 samples are analyzed to avoid not having enough data (&lt;20 data points) because of outliers or some kind of measurement or clerical error. Besides more data points not only looks better graphically, but it also adds statistical <a href="https://en.wikipedia.org/wiki/Power_(statistics)">power</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> to your analysis.</p>
 </div>
 <div id="ordinary-least-square-regression" class="section level2">
 <h2>Ordinary-Least-Square Regression</h2>
-<p><strong>Ordinary-Least-Squares (OLS)</strong> estimates the parameters in a regression model by minimizing the sum of the squared <strong>residuals</strong>. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The regression line is selected so that the sum of squares of the residual is minimized. OLS is explained <a href="http://setosa.io/ev/ordinary-least-squares-regression/">here</a> interactively and in greater detail.</p>
-<p>OLS assumes that the values in <span class="math inline">\(x-\)</span>axis were measured without error and the variance of <span class="math inline">\(y\)</span> is constant (hemoscedastic). These two assumptions are met when performing a calibration or linearity verification where there is little error on the <span class="math inline">\(x-\)</span>axis since the values are pre-defined. In method comparisons both measurements on the <span class="math inline">\(x-\)</span> and <span class="math inline">\(y-\)</span>axis have error.</p>
-<p>The residual of each point is the red segments in the figure below. The blue line is the linear regression line.
-<img src="/post/2020-02-22-deming-and-passing-bablok-regressions_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Ordinary-Least-Squares (OLS)</strong> regression estimates the parameters in a regression model by minimizing the sum of the squared <strong>residuals</strong>. In an ordinary-least-squares regression, the residual of a point is its vertical distance from the regression line. The residual is the difference between the actual and the predicted values of the dependent variable.</p>
+<p>The regression line is selected so that the sum of squares of the residual is minimized.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> In the figure below, the regression line (blue line) is the line that has the smallest sum of squared distances of the red segments. In the background, the regression line is “selected” from multiple lines based on having the smallest sum of squared distances (residuals). This is why the regression line is often referred to as the “best fit” line.</p>
+<p>In a simple linear regression, with only one variable, the model looks like this:</p>
+<p><span class="math display">\[y_i = \alpha + \beta x_{i} + \varepsilon_i\]</span>
+where <span class="math inline">\(i\)</span> is the <span class="math inline">\(i^{th}\)</span> data point, <span class="math inline">\(\alpha\)</span> is the y-intercept, <span class="math inline">\(\beta\)</span> is the slope and <span class="math inline">\(\varepsilon\)</span> is the measurement error on the <span class="math inline">\(y-\)</span>axis. OLS assumes that the values in the <span class="math inline">\(x-\)</span>axis were measured without error and the variance of <span class="math inline">\(y\)</span> is constant (homoscedastic). In method comparisons, both <span class="math inline">\(x-\)</span> and <span class="math inline">\(y-\)</span> axes have errors that OLS does not take into account.</p>
+<p>OLS is appropriate for calibrations and linearity verifications. In these cases there is little error on the <span class="math inline">\(x-\)</span>axis since calibrator or linearity values are pre-defined and their ranges are often very narrow.</p>
+<p>In the figure below the residual of each point are the red segments. The blue line is the linear regression line.</p>
+<pre class="r"><code># build a linear regression model using the lm function
+fit &lt;- lm(new_method ~ ref_method, data = dat)
+# extract predicted values
+dat$predicted &lt;- predict(fit)
+# extract residuals from the model
+dat$residuals &lt;- residuals(fit)
+
+# plot the data.
+plot_1 &lt;- ggplot(dat, aes(x = ref_method, y = new_method)) +
+  # add regression line
+  geom_smooth(method = &quot;lm&quot;,
+              # do not display the confidence interval
+              se = FALSE, 
+              color = c(&quot;#104E8B&quot;)) +
+  # add the residuals segments
+  geom_segment(aes(xend = ref_method, yend = predicted),
+               colour = c(&quot;#8B0000&quot;)) +
+  # add the points
+  geom_point(size = 3,
+             pch = 21,
+             fill = c(&quot;grey50&quot;)) +
+  # add x and y-axis labels
+  labs(x = &quot;Reference Method&quot;, y = &quot;New Method&quot;) +
+  # use ggplot2 theme_bw for graph
+  theme_bw()
+
+# display the plot
+plot_1</code></pre>
+<p><img src="/post/2020-02-22-deming-and-passing-bablok-regressions_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>We will look at statistical power much closer in another post.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>OLS is explained <a href="http://setosa.io/ev/ordinary-least-squares-regression/">here</a> interactively and in greater detail.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
 
               
@@ -424,15 +473,15 @@ A6
 
   <a class="tag tag--primary tag--small" href="/tags/clsi/">CLSI</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/least-squares/">least squares</a>
+  <a class="tag tag--primary tag--small" href="/tags/least-squares/">Least Squares</a>
 
   <a class="tag tag--primary tag--small" href="/tags/deming/">Deming</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/method-comparison/">method comparison</a>
+  <a class="tag tag--primary tag--small" href="/tags/method-comparison/">Method Comparison</a>
 
   <a class="tag tag--primary tag--small" href="/tags/passing-bablok/">Passing Bablok</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/method-validation/">method validation</a>
+  <a class="tag tag--primary tag--small" href="/tags/method-validation/">Method Validation</a>
 
   <a class="tag tag--primary tag--small" href="/tags/regression/">Regression</a>
 
@@ -647,7 +696,7 @@ A6
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-0lrfwds5qbvtn5iang6tgd42bku07ad0yj9qliva7ukwydc0nm7b2rcqkz.min.js"></script>
+<script src="/js/script-pbxhdmi2cahg8aogojgype0cxrvtph51ds1d7sowplqr7hezcclrjo86.min.js"></script>
 
 
 <script lang="javascript">
