@@ -84,7 +84,7 @@ R will take time to learn, but it will be worth the effort.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-x8rus58w7ioaaudqfxfutqecqxnfdcm6gaqsbo0i4dvddtu6w52ou4rx.min.css" />
+    <link rel="stylesheet" href="/css/style-1skpxhel5thr2yfqp7nvlqv7rkny90bbk0rwrwzwphajhe9odcft8fd9wf.min.css" />
     
     
 
@@ -282,11 +282,12 @@ R will take time to learn, but it will be worth the effort.">
 
 
 <p>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.</p>
-<p>R will take time to learn, but it will be worth the effort. If you need help there is a great online R community out there that is very helpful. Because R’s use is ubiquitous, there is bound to be someone able to help you with your specific need.</p>
+<p>R will take time to learn, but it will be worth the effort. If you need help, there is a great online R community out there that is very helpful. Because R’s use is ubiquitous, there is bound to be someone able to help you with your specific need.</p>
+<p>What we cover here is just enough to get you started with using R. There are lots of resources, both online and in print that you can refer to. R and most of it’s packages are well documented. A quick search should give you lots of answers.</p>
 <p>So let’s get started!</p>
 <div id="about-r" class="section level2">
 <h2>About R</h2>
-<p>“R is a free software environment for statistical computing and graphics”.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> R is really a programming language based on the S programming language. R was created by Ross Ihaka and Robert Gentleman at the University of Aukland in New Zealand. It is currently maintained and new versions developed by the <em>R Development Core Team</em>.
+<p>“R is a free software environment for statistical computing and graphics”.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> R is really a programming language based on the S language. R was created by Ross Ihaka and Robert Gentleman at the University of Auckland in New Zealand. It is currently maintained and developed by the <em>R Development Core Team</em>.
 If you want to learn more about R, <a href="https://www.r-project.org/"><code>r-project.org</code></a> is the place to be.</p>
 </div>
 <div id="rstudio" class="section level2">
@@ -296,7 +297,7 @@ If you want to learn more about R, <a href="https://www.r-project.org/"><code>r-
 <img src="/post/2020-03-07-r-basics_files/Screenshot%20from%202020-02-29%2021-09-23.png" alt="RStudio Screenshot" />
 <p class="caption">RStudio Screenshot</p>
 </div>
-<p>RStudio comes in several versions. The open source version of RStudio Desktop and RStudio Server are free. All of the work I show here will be using RStudio Desktop. I am not familiar with RStudio Server.</p>
+<p>RStudio comes in several versions. The open source version of RStudio Desktop and RStudio Server are free. All of the work I show here will be using RStudio Desktop running on Ubuntu 18.04. I am not familiar with RStudio Server.</p>
 <p>Let me be clear that I am not being paid by RStudio to promote their products. I just want to give credit where it’s due. I have used other IDE’s for R, and RStudio just
 cannot be beat.</p>
 <p>The Desktop and Server open source versions of RStudio can be downloaded at <a href="https://rstudio.com/products/rstudio/"><code>https://rstudio.com/products/rstudio/</code></a>.</p>
@@ -304,11 +305,11 @@ cannot be beat.</p>
 <div id="using-r" class="section level2">
 <h2>Using R</h2>
 <p>R can be downloaded through <a href="https://cran.r-project.org/"><code>https://cran.r-project.org/</code></a>.</p>
-<p>R works using commands. These commands are combined to create functions. R packages are basically a compilation of functions that serve a specific purpose. The <code>ggplot2</code> package for example is purely for graphics generation.</p>
-<p>R comes with a <code>base</code> package. Base graphics and classical statistics functions are included in the <code>base</code> package. There are a multitude of other R packages. A full list of R packages can be found at <a href="https://cran.r-project.org/"><code>https://cran.r-project.org/</code></a></p>
+<p>R works using commands. These commands are combined to create functions. An R package is a compilation of functions that serve a specific purpose. The <code>ggplot2</code> package for example is purely for graphics generation.</p>
+<p>R is installed with a <code>base</code> package. Base graphics and classical statistics functions are included in the <code>base</code> package. There are a multitude of other R packages that you can use for your specific needs. A full list of R packages can be found at <a href="https://cran.r-project.org/"><code>https://cran.r-project.org/</code></a></p>
 <div id="r-in-rstudio" class="section level3">
 <h3>R in RStudio</h3>
-<p>R can be used by itself, but I highly recommend that you download RStudio. RStudio will provide syntax highlighting, auto completion and auto formatting for your code. These may seem like superficial features, but if you are writing a few hundred lines of code, these features come in handy. RStudio will also help you manage packages and variables. For an overview on how to get started with RStudio go to <a href="https://rstudio.com/"><code>https://rstudio.com/</code></a>.</p>
+<p>R can be used by itself, but I highly recommend that you install RStudio. RStudio will provide syntax highlighting, auto completion and auto formatting for your code. These may seem like superficial features, but if you are writing a few hundred lines of code, these features come in handy. RStudio will also help you manage packages and variables. For an overview on how to get started with RStudio go to <a href="https://rstudio.com/"><code>https://rstudio.com/</code></a>.</p>
 <p>The default layout of RStudio consists of a window divided into four panels.</p>
 <p>The first panel is the R Console. It is here that you can work with data interactively. In RStudio, the R Console will look like this when it is first loaded.</p>
 <div class="figure">
@@ -316,35 +317,45 @@ cannot be beat.</p>
 <p class="caption">R Console in RStudio</p>
 </div>
 <p>The pink “<code>&gt;</code>” is where commands will are entered.</p>
-<p>Entering commands directly into R Console is useful when interacting with data but it can be difficult to use when writing more and more lines of code. RStudio provides an area for writing code before sending it to be run on the console.</p>
+<p>Entering commands directly into R Console is useful when interacting with data but it can be difficult to use when writing more and more lines of code. RStudio provides a text editor, with syntax highlighting, auto-completion and auto-formatting capabilities for writing code before sending it to be run on the console. Think of this as Notepad on high-dose caffeine.</p>
 <div class="figure">
 <img src="/post/2020-03-07-r-basics_files/rScriptConsole.png" alt="Script Entry Screen" />
 <p class="caption">Script Entry Screen</p>
 </div>
-<p>All you’d have to do is press the <code>Run</code> button on the upper right to run all the code you’ve written. This is useful for if you are writing tens if not hundreds of lines of code, for troubleshooting your work and for writing long reports.</p>
+<p>All you’d have to do is press the <code>Run</code> button on the upper right to run all the code you’ve written. From here you can save your code or send it off to a collaborator. This is useful when you are working on a project that involves mutiple files and tens if not hundreds of lines of code. This is also useful for troubleshooting your work and for writing dynamic reports (more on this later).</p>
 <p>R saves data and output as named variables. An alphabetical list with a summary of each variable you are currently using is found in this panel:</p>
 <div class="figure">
 <img src="/post/2020-03-07-r-basics_files/variablePanel.png" alt="A Panel for Variables" />
 <p class="caption">A Panel for Variables</p>
 </div>
-<p>Finally, there is the plot panel. In the screenshot below, I do not show a plot. This is because I find the <code>help</code> tab more useful. If you need help with a function, <code>?functionname</code> (<code>?median</code> for example) will bring up documentation for that function, if it’s available. If unsure about the name of the function, just double up on the question mark – “<code>??</code>”.</p>
+<p>Finally, there is the plot panel. In the screenshot below, I do not show a plot. This is because I find the <code>help</code> tab more useful. If you need help with a function, <code>?functionname</code> (<code>?median</code> for example) will bring up documentation for that function, if it’s available. If unsure about the name of the function, just double up on the question marks – “<code>??median</code>”.</p>
 <div class="figure">
 <img src="/post/2020-03-07-r-basics_files/plotPanel.png" alt="Plot and Help Panel" />
 <p class="caption">Plot and Help Panel</p>
 </div>
-<p>As you may have already noticed, most of these panels have tabs. Each of these tabs have different functionality. I only describe the default panels and tabs that RStudio comes in. I leave the other tabs for you to explore. There are other ways to customize RStudio to your liking, but like the tabs I leave that for you to explore.</p>
+<p>As you may have already noticed, most of the RStudio panels have tabs. Each of these tabs have different functionality. I only describe the default panels and tabs that RStudio initially loads in. I leave the other tabs for you to explore. There are other ways to customize RStudio to your liking, but like the tabs I leave that for you to discover.</p>
 </div>
 <div id="r-syntax" class="section level3">
 <h3>R Syntax</h3>
 <p>Like spoken languages, programming languages have their own syntax and vocabulary. R’s syntax and vocabulary are relatively easy, but as with a spoken language, you either use it or lose it.</p>
 <p>In this section I will go through some of the most common commands that I use in R. A copy of <strong><em>“An Introduction to R”</em></strong> from the R Development Core Team can be found at <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">here</a>.</p>
 <ol style="list-style-type: decimal">
-<li>Putting a comment in R - a comment in any programming language is not considered a command. Comments are used to describe certain parts of the code or to serve as reminders (e.g. <code>TODO</code> comments). R output are shown with “<code>##</code>” symbols.</li>
+<li>Installing R packages-installing packages in R is very simple. R will automatically choose the repository to install your package from. In RStudio, in the “Tools” menu, you can find “Install Packages…”. From here, search for your desired package by typing in the search bar. You can also choose the repository you’d like to use. To install a package from the R Console just type in:</li>
+</ol>
+<pre class="r"><code>install.packages(name_of_package)
+
+# if you want to learn about what options
+# there are for the install.packages function
+# type in:
+
+?install.packages</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Putting a comment in R - a comment in any programming language is not considered a command. Comments are used to describe certain parts of the code or to serve as reminders (e.g. <code>TODO</code> comments). To differentiate from a comment, R output are shown with “<code>##</code>” symbols.</li>
 </ol>
 <pre class="r"><code># This is a comment in R
 # If you don&#39;t want your code to be ran, 
-# but don&#39;t want it erased, it can be commented out.
-# Like below:
+# but don&#39;t want it erased, it can be &quot;commented&quot; out,
+# like below:
 
 #dat1 &lt;- c(1,2,2,2)
 #print(test)</code></pre>
@@ -354,8 +365,8 @@ cannot be beat.</p>
 dat1 &lt;- c(1:10)
 dat1</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Assigning data a variable name - in the example above, a sequence of numbers, 1 through 10 (<code>c(1:10)</code>) is being assigned to variable <code>dat1</code>. The naming convention in R is <code>variable_name &lt;- data_to_save_to_the_name</code>. Think of the “<code>&lt;-</code>” as equivalent to an “<code>=</code>” sign.</p></li>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Assigning data a variable name - in the example above, a sequence of numbers, 1 through 10 (<code>c(1:10)</code>) is being assigned to variable <code>dat1</code>. To assign data to a name in R this convention is used: <code>variable_name &lt;- data_to_save_to_the_name</code>. Think of the “<code>&lt;-</code>” as equivalent to an “<code>=</code>” sign.</p></li>
 <li><p>Basic Operations - there are different operations that can be performed on data depending on the type data you are working with.</p></li>
 </ol>
 <ul>
@@ -370,8 +381,8 @@ dat1</code></pre>
 <pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
 <pre class="r"><code>dat1+2</code></pre>
 <pre><code>##  [1]  3  4  5  6  7  8  9 10 11 12</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Subsetting data - Most of the data we will be working with will be multi-dimensional, in the form of a data frame. Data frames is a data structure with columns and rows. This is exactly the same as an Excel spreadsheet. The same operations that can be performed on one-dimensional data can be done on data frames, but R would need to know on which dimension to perform the operation. For example, R would need to know to perform an operation column-wise or row-wise. This is where we subsetting is useful.</li>
+<ol start="5" style="list-style-type: decimal">
+<li>Sub-setting data - Most of the data we will be working with will be multi-dimensional, in the form of a data frame. A data frame is a data structure with columns and rows. This is exactly the same as an Excel spreadsheet. The same operations that can be performed on one-dimensional data can be done on data frames, but R would need to know on which dimension to perform the operation. For example, R would need to know to perform an operation column-wise or row-wise. This is where we sub-setting is useful.</li>
 </ol>
 <pre class="r"><code># let&#39;s create a fake data frame with 2 columns and 5 rows
 col1 &lt;- c(1:5)
@@ -399,6 +410,7 @@ summary(dat2)</code></pre>
 ##  Max.   :5   Max.   :10</code></pre>
 <pre class="r"><code># there are several ways to subset a data frame
 # one way is by this convention: df_name[row_number,column_number]
+# code below extracts the value for [row 1, column 1]
 dat2[1,1]</code></pre>
 <pre><code>## [1] 1</code></pre>
 <pre class="r"><code># if you want the whole first column, leave the row number blank
@@ -406,6 +418,8 @@ dat2[1,1]</code></pre>
 dat2[ ,1]</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <pre class="r"><code># if you want just the first three rows of all columns
+# this works similarly for rows also
+# interpret the &quot;:&quot; symbol as &quot;up to&quot;
 dat2[1:3, ]</code></pre>
 <pre><code>##   col1 col2
 ## 1    1    6
@@ -416,10 +430,10 @@ dat2[1:3, ]</code></pre>
 dat2$col1</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <ul>
-<li>A <code>subset</code> function is available in <code>base</code> R, but I will not discuss it here. I only really find it useful when working with large datasets. For smaller data sets, it is faster to not use the <code>subset</code> function.</li>
+<li>A <code>subset</code> function is available in <code>base</code> R, but I will not discuss it here. I only really find it useful when working with large data sets. For smaller data sets, it is faster to not use the <code>subset</code> function.</li>
 </ul>
-<ol start="5" style="list-style-type: decimal">
-<li><code>base</code> and <code>ggplot2</code> graphics - the figures below are for demonstration only. More sophisticated figures can be generated using either packages. <code>ggplot2</code> provides more flexibility, and in my opinion generally better graphics than <code>base</code> R. However, <code>ggplot2</code>’s design is different and requires one to learn a slightly different syntax and vocabulary. <code>ggplot2</code>’s syntax and vocabulary is based on the “Grammar of Graphics”.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you are particular about graphics, then <code>ggplot2</code> is the package to use. I personally prefer <code>ggplot2</code>, but as mentioned there is a separate learning curve just for this package.</li>
+<ol start="6" style="list-style-type: decimal">
+<li><code>base</code> and <code>ggplot2</code> graphics - the figures below are for demonstration only. More sophisticated figures can be generated using either packages. In my opinion <code>ggplot2</code> provides more flexibility, and generally better graphics than <code>base</code> R. However, <code>ggplot2</code>’s design is different and requires one to learn a slightly different syntax and vocabulary. <code>ggplot2</code>’s syntax and vocabulary is based on the “Grammar of Graphics”.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you are particular about graphics, then <code>ggplot2</code> is the package to use.</li>
 </ol>
 <pre class="r"><code># we&#39;ll use the iris dataset for this example
 # this dataset comes with base R
@@ -427,17 +441,17 @@ dat2$col1</code></pre>
 # base R graphics
 plot(iris$Petal.Length, iris$Petal.Width, pch=21,
      bg=c(&quot;red&quot;,&quot;green3&quot;,&quot;blue&quot;)[unclass(iris$Species)])</code></pre>
-<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code># ggplot2 graphics
-ggplot(iris, aes(x=Petal.Length, y=Petal.Width, color = Species)) +
-  geom_point()</code></pre>
-<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+ggplot(iris, aes(x=Petal.Length, y=Petal.Width, fill = Species)) +
+  geom_point(pch=21)</code></pre>
+<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 </div>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>We barely scratched the surface of the R world in this post, but what was covered here should be enough to get you started. More and more aspects of R will be covered as I write more and more posts. Remember, that with R or any language, you either use or you lose it, so keep on practicing.</p>
-<p>In the next post I’m thinking of covering method comparisons. There we will learn about how to use R in linear regression. Until then, thank you for reading the whole way through and have a great day.</p>
+<p>We barely scratched the surface of the R world in this post, but what was covered here should be enough to get you started. More and more aspects of R will be covered as I write more and more posts. Remember, that with R or any language, you either use or lose it, so keep on practicing.</p>
+<p>In the next post I’m thinking of covering method comparisons. There we will use R to do linear regression. Until then, thank you for reading the whole way through and have a great day.</p>
 </div>
 <div class="footnotes">
 <hr />
@@ -671,7 +685,7 @@ ggplot(iris, aes(x=Petal.Length, y=Petal.Width, color = Species)) +
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-pbxhdmi2cahg8aogojgype0cxrvtph51ds1d7sowplqr7hezcclrjo86.min.js"></script>
+<script src="/js/script-bozv6akrumxvidiwc5k4swxsebuzpit5e1qb7vfwnydeer3r9gogw3cs.min.js"></script>
 
 
 <script lang="javascript">
