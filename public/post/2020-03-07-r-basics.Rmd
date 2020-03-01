@@ -1,0 +1,187 @@
+---
+title: R Basics
+author: Adrian Bandolon
+date: '2020-03-01'
+slug: r-basics
+categories:
+  - Getting Started
+  - Programming
+tags:
+  - R
+keywords:
+  - tech
+
+coverImage: /post/2020-03-07-r-basics_files/theBund.jpg
+coverCaption: "Shanghai Financial District from The Bund"
+thumbnailImage: /post/2020-03-07-r-basics_files/theBund_thumb.jpg
+thumbnailImagePosition: top
+
+weight: 3
+---
+
+When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+
+R will take time to learn, but it will be worth the effort. If you need help there is a great online R community out there that is very helpful. Because R's use is ubiquitous, there is bound to be someone able to help you with your specific need. 
+
+So let's get started!
+
+## About R
+
+"R is a free software environment for statistical computing and graphics".^[[r-project.org](https://www.r-project.org/)] R is really a programming language based on the S programming language. R was created by Ross Ihaka and Robert Gentleman at the University of Aukland in New Zealand. It is currently maintained and new versions developed by the *R Development Core Team*. 
+If you want to learn more about R, [`r-project.org`](https://www.r-project.org/) is the place to be. 
+
+## RStudio
+
+RStudio has become synonymous with R. RStudio is an *Integrated Development Environment* (IDE) for R. RStudio makes running and developing R projects a breeze. Here is a screenshot of my RStudio Desktop as I am writing this post. Your RStudio may not look like mine since the colors of RStudio are theme dependent.
+
+![RStudio Screenshot](/post/2020-03-07-r-basics_files/Screenshot from 2020-02-29 21-09-23.png)
+
+RStudio comes in several versions. The open source version of RStudio Desktop and RStudio Server are free. All of the work I show here will be using RStudio Desktop. I am not familiar with RStudio Server.
+
+Let me be clear that I am not being paid by RStudio to promote their products. I just want to give credit where it's due. I have used other IDE's for R, and RStudio just 
+cannot be beat.
+
+The Desktop and Server open source versions of RStudio can be downloaded at [`https://rstudio.com/products/rstudio/`](https://rstudio.com/products/rstudio/).
+
+## Using R
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(package.startup.message = FALSE)
+library(ggplot2)
+library(knitr)
+library(dplyr)
+library(kableExtra)
+library(reshape2)
+```
+
+R can be downloaded through [`https://cran.r-project.org/`](https://cran.r-project.org/). 
+
+R works using commands. These commands are combined to create functions. R packages are basically a compilation of functions that serve a specific purpose. The `ggplot2` package for example is purely for graphics generation.
+
+R comes with a `base` package. Base graphics and classical statistics functions are included in the `base` package. There are a multitude of other R packages. A full list of R packages can be found at [`https://cran.r-project.org/`](https://cran.r-project.org/)
+
+### R in RStudio
+
+R can be used by itself, but I highly recommend that you download RStudio. RStudio will provide syntax highlighting, auto completion and auto formatting for your code. These may seem like superficial features, but if you are writing a few hundred lines of code, these features come in handy. RStudio will also help you manage packages and variables. For an overview on how to get started with RStudio go to [`https://rstudio.com/`](https://rstudio.com/).
+
+The default layout of RStudio consists of a window divided into four panels.
+
+The first panel is the R Console. It is here that you can work with data interactively. In RStudio, the R Console will look like this when it is first loaded.
+
+![R  Console in RStudio](/post/2020-03-07-r-basics_files/rConsole.png)
+
+The pink "`>`" is where commands will are entered. 
+
+Entering commands directly into R Console is useful when interacting with data but it can be difficult to use when writing more and more lines of code. RStudio provides an area for writing code before sending it to be run on the console.
+
+![Script Entry Screen](/post/2020-03-07-r-basics_files/rScriptConsole.png)
+
+All you'd have to do is press the `Run` button on the upper right to run all the code you've written. This is useful for if you are writing tens if not hundreds of lines of code, for troubleshooting your work and for writing long reports.
+
+R saves data and output as named variables. An alphabetical list with a summary of each variable you are currently using is found in this panel:
+
+![A Panel for Variables](/post/2020-03-07-r-basics_files/variablePanel.png)
+
+Finally, there is the plot panel. In the screenshot below, I do not show a plot. This is because I find the `help` tab more useful. If you need help with a function, `?functionname` (`?median` for example) will bring up documentation for that function, if it's available. If unsure about the name of the function, just double up on the question mark -- "`??`".
+
+![Plot and Help Panel](/post/2020-03-07-r-basics_files/plotPanel.png)
+
+As you may have already noticed, most of these panels have tabs. Each of these tabs have different functionality. I only describe the default panels and tabs that RStudio comes in. I leave the other tabs for you to explore. There are other ways to customize RStudio to your liking, but like the tabs I leave that for you to explore.
+
+### R Syntax
+
+Like spoken languages, programming languages have their own syntax and vocabulary. R's syntax and vocabulary are relatively easy, but as with a spoken language, you either use it or lose it.
+
+In this section I will go through some of the most common commands that I use in R. A copy of __*"An Introduction to R"*__ from the R Development Core Team can be found at [here](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf). 
+
+
+1. Putting a comment in R - a comment in any programming language is not considered a command. Comments are used to describe certain parts of the code or to serve as reminders (e.g. `TODO` comments). R output are shown with "`##`" symbols.
+
+```{r}
+# This is a comment in R
+# If you don't want your code to be ran, 
+# but don't want it erased, it can be commented out.
+# Like below:
+
+#dat1 <- c(1,2,2,2)
+#print(test)
+```
+
+```{r}
+# "Un-commenting" a line of code will cause it to be run.
+# For example:
+
+dat1 <- c(1:10)
+dat1
+```
+
+2. Assigning data a variable name - in the example above, a sequence of numbers, 1 through 10 (`c(1:10)`) is being assigned to variable `dat1`. The naming convention in R is `variable_name <- data_to_save_to_the_name`. Think of the "`<-`" as equivalent to an "`=`" sign. 
+
+3. Basic Operations - there are different operations that can be performed on data depending on the type data you are working with.
+    
+  + For one-dimensional data, R can perform aggregation operations like finding the mean which operates on the whole set.
+
+```{r}
+mean(dat1)
+```
+    
+  + R can also perform element-wise operations, like multiplication or addition.
+    
+```{r}
+dat1*2
+dat1+2
+```
+
+4. Subsetting data - Most of the data we will be working with will be multi-dimensional, in the form of a data frame. Data frames is a data structure with columns and rows. This is exactly the same as an Excel spreadsheet. The same operations that can be performed on one-dimensional data can be done on data frames, but R would need to know on which dimension to perform the operation. For example, R would need to know to perform an operation column-wise or row-wise. This is where we subsetting is useful. 
+
+```{r}
+# let's create a fake data frame with 2 columns and 5 rows
+col1 <- c(1:5)
+col2 <- c(6:10)
+
+# cbind combines the two one-dimensional data
+# into one data frame column-wise
+# rbind will perform the same operation, but row-wise
+dat2 <- data.frame(cbind(col1, col2))
+dat2
+
+# get the summary of the whole data frame
+summary(dat2)
+
+# there are several ways to subset a data frame
+# one way is by this convention: df_name[row_number,column_number]
+dat2[1,1]
+
+# if you want the whole first column, leave the row number blank
+# it works the same if you want just rows
+dat2[ ,1]
+
+# if you want just the first three rows of all columns
+dat2[1:3, ]
+
+# another way to subset a data frame is by using the "$" symbol
+# this only works for column-wise operations
+dat2$col1
+```
+
+  + A `subset` function is available in `base` R, but I will not discuss it here. I only really find it useful when working with large datasets. For smaller data sets, it is faster to not use the `subset` function.
+
+5. `base` and `ggplot2` graphics -  the figures below are for demonstration only. More sophisticated figures can be generated using either packages. `ggplot2` provides more flexibility, and in my opinion generally better graphics than `base` R. However, `ggplot2`'s design is different and requires one to learn a slightly different syntax and vocabulary. `ggplot2`'s syntax and vocabulary is based on the "Grammar of Graphics".^[If you are interested to learn more, go [here](https://ggplot2.tidyverse.org/)] If you are particular about graphics, then `ggplot2` is the package to use. I personally prefer `ggplot2`, but as mentioned there is a separate learning curve just for this package.
+
+```{r}
+# we'll use the iris dataset for this example
+# this dataset comes with base R
+
+# base R graphics
+plot(iris$Petal.Length, iris$Petal.Width, pch=21,
+     bg=c("red","green3","blue")[unclass(iris$Species)])
+# ggplot2 graphics
+ggplot(iris, aes(x=Petal.Length, y=Petal.Width, color = Species)) +
+  geom_point()
+```
+
+## Conclusion
+
+We barely scratched the surface of the R world in this post, but what was covered here should be enough to get you started. More and more aspects of R will be covered as I write more and more posts. Remember, that with R or any language, you either use or you lose it, so keep on practicing.
+
+In the next post I'm thinking of covering method comparisons. There we will learn about how to use R in linear regression. Until then, thank you for reading the whole way through and have a great day.

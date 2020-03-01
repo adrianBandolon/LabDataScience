@@ -27,6 +27,7 @@ keywords:
   
 coverMeta: out
 coverImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603.jpg
+coverCaption: "Early Morning on Brooklyn Bridge"
 thumbnailImage: /post/2020-02-22-deming-and-passing-bablok-regressions_files/121214NEWYORK603thumb.jpg
 thumbnailImagePosition: top
 draft: true
@@ -42,15 +43,15 @@ library(reshape2)
 library(mcr)
 ```
 
-**Deming** and **Passing-Bablok** regressions are used to compare two quantitative methods. They are used to compare a *reference* method to the *new* method. Depending on the data structure, one of these two regression methods is used a part of a validation study. 
+**Deming** and **Passing-Bablok** regressions are used to compare two quantitative methods. They are used to compare a *reference* method to the *new* method. Depending on the qualities of the data, one of these two regression methods is used a part of a validation study. 
 
 Deming and Passing-Bablok regressions are variations of an **ordinary-least-squares (OLS)** linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression. Along the way, we will mention the crucial differences between these three types of regression techniques.
 
-### A little about R code structure
+### A Little About Code Chunks
 
 In my posts, I will be sharing related R code. In this site these code chunks will appear in a box with a dark background. If I did my job correctly, the code will also have color highlighting. I tried to choose subtle colors, but that defeats the purpose of "highlighting".  
 
-Code that start with "`#`" are comments that are not evaluated. They are used as reminders or for descriptions. I try to name program variables descriptively and sensibly (e.g. `plot_1` for the first plot). This is best practice, as this makes it easier for me or someone else to review my code in the future. This also keeps me from having to put too many comments. But, I realize that some of you may not or have little coding experience. Because of this, I will be extensively adding comments to the code chunks that are on my posts.
+Code that start with "`#`" are comments that are not evaluated. They are used as reminders or for descriptions. I try to name program variables descriptively and sensibly (e.g. `ols_plot` for the OLS plot). This is best practice, as this makes it easier for me or someone else to review my code in the future. This also keeps me from having to put too many comments. I realize that some of you may not or have little coding experience. Because of this, I will be adding more comments than I normally would to the code chunks.
 
 Here is an example code chunk:
 ```{r eval=FALSE}
@@ -60,7 +61,7 @@ library(kableExtra) #for rendering html tables
 library(mcr) #will use 'deming' and 'PaBa' functions from here
 ```
 
-As you can see, we will be using the `ggplot2` R library to generate plots. We will use the `mcr` library to perform Deming and Passing-Bablok regressions. A special library is not required for OLS as it is part of R's `base` package. `dplyr` and `kableExtra` are libraries we will be using to manipulate data and for rendering tables.
+The above code imports R libraries that will be used in this post. As you can see, we will be using the `ggplot2` R library to generate plots. We will use the `mcr` library to perform Deming and Passing-Bablok regressions. A special library is not required for OLS as it is part of R's `base` library. `dplyr` and `kableExtra` are libraries we will be using to manipulate data and for rendering tables.
 
 
 
@@ -90,22 +91,22 @@ where $i$ is the $i^{th}$ data point, $\alpha$ is the y-intercept, $\beta$ is th
 
 OLS is appropriate for calibrations and linearity verifications. In these cases there is little error on the $x-$axis since calibrator or linearity values are pre-defined and their ranges are often very narrow. 
 
-In the figure below the residual of each point are the red segments. The blue line is the linear regression line.
+In the figure below the residual of each point are the ed segments. The blue line is the linear regression line.
 
 ```{r echo=TRUE, fig.align='center', error=FALSE, warning=FALSE, message=FALSE}
 # build a linear regression model using the lm function
-fit <- lm(new_method ~ ref_method, data = dat)
+lm_fit <- lm(new_method ~ ref_method, data = dat)
 # extract predicted values
-dat$predicted <- predict(fit)
+dat$predicted <- predict(lm_fit)
 # extract residuals from the model
-dat$residuals <- residuals(fit)
+dat$residuals <- residuals(lm_fit)
 
 # plot the data.
-plot_1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
+ols_plot <- ggplot(dat, aes(x = ref_method, y = new_method)) +
   # add regression line
   geom_smooth(method = "lm",
               # do not display the confidence interval
-              se = FALSE, 
+              se = FALSE,
               color = c("#104E8B")) +
   # add the residuals segments
   geom_segment(aes(xend = ref_method, yend = predicted),
@@ -120,7 +121,7 @@ plot_1 <- ggplot(dat, aes(x = ref_method, y = new_method)) +
   theme_bw()
 
 # display the plot
-plot_1
+ols_plot
 ```
 
 

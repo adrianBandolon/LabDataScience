@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.64.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Adrian Bandolon">
+<meta name="keywords" content="tech, R, Statistics">
+<meta name="description" content="When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.">
+
+
+<meta property="og:description" content="When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R Basics">
+<meta name="twitter:title" content="R Basics">
+<meta property="og:url" content="/2020/03/r-basics/">
+<meta property="twitter:url" content="/2020/03/r-basics/">
+<meta property="og:site_name" content="Lab &amp; Data Science">
+<meta property="og:description" content="When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.">
+<meta name="twitter:description" content="When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-03-01T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-03-01T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Getting Started">
+    
+      <meta property="article:section" content="Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="R">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/post/2020-03-07-r-basics_files/theBund_thumb.jpg">
+  <meta property="twitter:image" content="/post/2020-03-07-r-basics_files/theBund_thumb.jpg">
+
+
+  <meta property="og:image" content="/post/2020-03-07-r-basics_files/theBund.jpg">
+  <meta property="twitter:image" content="/post/2020-03-07-r-basics_files/theBund.jpg">
+
+
+
+
+  <meta property="og:image" content="/images/reserved-seat.jpg">
+  <meta property="twitter:image" content="/images/reserved-seat.jpg">
+
+
+    <title>R Basics</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/03/r-basics/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-x8rus58w7ioaaudqfxfutqecqxnfdcm6gaqsbo0i4dvddtu6w52ou4rx.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Lab &amp; Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Adrian Bandolon</h4>
+        
+          <h5 class="sidebar-profile-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/about/index.html">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/adrianBandolon">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/spyrokete/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/adrian-bandolon/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/post/2020-03-07-r-basics_files/theBund.jpg')"
+       data-behavior="4">
+    
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<div class="post-header main-content-wrap text-left">
+    
+    <h1 class="post-title" itemprop="headline">
+        R Basics
+    </h1>
+     
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-03-01T00:00:00Z">
+        
+  March 1, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/getting-started">Getting Started</a>, 
+    
+      <a class="category-link" href="/categories/programming">Programming</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">Shanghai Financial District from The Bund</span>
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+
+<p>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.</p>
+<p>R will take time to learn, but it will be worth the effort. If you need help there is a great online R community out there that is very helpful. Because R’s use is ubiquitous, there is bound to be someone able to help you with your specific need.</p>
+<p>So let’s get started!</p>
+<div id="about-r" class="section level2">
+<h2>About R</h2>
+<p>“R is a free software environment for statistical computing and graphics”.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> R is really a programming language based on the S programming language. R was created by Ross Ihaka and Robert Gentleman at the University of Aukland in New Zealand. It is currently maintained and new versions developed by the <em>R Development Core Team</em>.
+If you want to learn more about R, <a href="https://www.r-project.org/"><code>r-project.org</code></a> is the place to be.</p>
+</div>
+<div id="rstudio" class="section level2">
+<h2>RStudio</h2>
+<p>RStudio has become synonymous with R. RStudio is an <em>Integrated Development Environment</em> (IDE) for R. RStudio makes running and developing R projects a breeze. Here is a screenshot of my RStudio Desktop as I am writing this post. Your RStudio may not look like mine since the colors of RStudio are theme dependent.</p>
+<div class="figure">
+<img src="/post/2020-03-07-r-basics_files/Screenshot%20from%202020-02-29%2021-09-23.png" alt="RStudio Screenshot" />
+<p class="caption">RStudio Screenshot</p>
+</div>
+<p>RStudio comes in several versions. The open source version of RStudio Desktop and RStudio Server are free. All of the work I show here will be using RStudio Desktop. I am not familiar with RStudio Server.</p>
+<p>Let me be clear that I am not being paid by RStudio to promote their products. I just want to give credit where it’s due. I have used other IDE’s for R, and RStudio just
+cannot be beat.</p>
+<p>The Desktop and Server open source versions of RStudio can be downloaded at <a href="https://rstudio.com/products/rstudio/"><code>https://rstudio.com/products/rstudio/</code></a>.</p>
+</div>
+<div id="using-r" class="section level2">
+<h2>Using R</h2>
+<p>R can be downloaded through <a href="https://cran.r-project.org/"><code>https://cran.r-project.org/</code></a>.</p>
+<p>R works using commands. These commands are combined to create functions. R packages are basically a compilation of functions that serve a specific purpose. The <code>ggplot2</code> package for example is purely for graphics generation.</p>
+<p>R comes with a <code>base</code> package. Base graphics and classical statistics functions are included in the <code>base</code> package. There are a multitude of other R packages. A full list of R packages can be found at <a href="https://cran.r-project.org/"><code>https://cran.r-project.org/</code></a></p>
+<div id="r-in-rstudio" class="section level3">
+<h3>R in RStudio</h3>
+<p>R can be used by itself, but I highly recommend that you download RStudio. RStudio will provide syntax highlighting, auto completion and auto formatting for your code. These may seem like superficial features, but if you are writing a few hundred lines of code, these features come in handy. RStudio will also help you manage packages and variables. For an overview on how to get started with RStudio go to <a href="https://rstudio.com/"><code>https://rstudio.com/</code></a>.</p>
+<p>The default layout of RStudio consists of a window divided into four panels.</p>
+<p>The first panel is the R Console. It is here that you can work with data interactively. In RStudio, the R Console will look like this when it is first loaded.</p>
+<div class="figure">
+<img src="/post/2020-03-07-r-basics_files/rConsole.png" alt="R Console in RStudio" />
+<p class="caption">R Console in RStudio</p>
+</div>
+<p>The pink “<code>&gt;</code>” is where commands will are entered.</p>
+<p>Entering commands directly into R Console is useful when interacting with data but it can be difficult to use when writing more and more lines of code. RStudio provides an area for writing code before sending it to be run on the console.</p>
+<div class="figure">
+<img src="/post/2020-03-07-r-basics_files/rScriptConsole.png" alt="Script Entry Screen" />
+<p class="caption">Script Entry Screen</p>
+</div>
+<p>All you’d have to do is press the <code>Run</code> button on the upper right to run all the code you’ve written. This is useful for if you are writing tens if not hundreds of lines of code, for troubleshooting your work and for writing long reports.</p>
+<p>R saves data and output as named variables. An alphabetical list with a summary of each variable you are currently using is found in this panel:</p>
+<div class="figure">
+<img src="/post/2020-03-07-r-basics_files/variablePanel.png" alt="A Panel for Variables" />
+<p class="caption">A Panel for Variables</p>
+</div>
+<p>Finally, there is the plot panel. In the screenshot below, I do not show a plot. This is because I find the <code>help</code> tab more useful. If you need help with a function, <code>?functionname</code> (<code>?median</code> for example) will bring up documentation for that function, if it’s available. If unsure about the name of the function, just double up on the question mark – “<code>??</code>”.</p>
+<div class="figure">
+<img src="/post/2020-03-07-r-basics_files/plotPanel.png" alt="Plot and Help Panel" />
+<p class="caption">Plot and Help Panel</p>
+</div>
+<p>As you may have already noticed, most of these panels have tabs. Each of these tabs have different functionality. I only describe the default panels and tabs that RStudio comes in. I leave the other tabs for you to explore. There are other ways to customize RStudio to your liking, but like the tabs I leave that for you to explore.</p>
+</div>
+<div id="r-syntax" class="section level3">
+<h3>R Syntax</h3>
+<p>Like spoken languages, programming languages have their own syntax and vocabulary. R’s syntax and vocabulary are relatively easy, but as with a spoken language, you either use it or lose it.</p>
+<p>In this section I will go through some of the most common commands that I use in R. A copy of <strong><em>“An Introduction to R”</em></strong> from the R Development Core Team can be found at <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">here</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Putting a comment in R - a comment in any programming language is not considered a command. Comments are used to describe certain parts of the code or to serve as reminders (e.g. <code>TODO</code> comments). R output are shown with “<code>##</code>” symbols.</li>
+</ol>
+<pre class="r"><code># This is a comment in R
+# If you don&#39;t want your code to be ran, 
+# but don&#39;t want it erased, it can be commented out.
+# Like below:
+
+#dat1 &lt;- c(1,2,2,2)
+#print(test)</code></pre>
+<pre class="r"><code># &quot;Un-commenting&quot; a line of code will cause it to be run.
+# For example:
+
+dat1 &lt;- c(1:10)
+dat1</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Assigning data a variable name - in the example above, a sequence of numbers, 1 through 10 (<code>c(1:10)</code>) is being assigned to variable <code>dat1</code>. The naming convention in R is <code>variable_name &lt;- data_to_save_to_the_name</code>. Think of the “<code>&lt;-</code>” as equivalent to an “<code>=</code>” sign.</p></li>
+<li><p>Basic Operations - there are different operations that can be performed on data depending on the type data you are working with.</p></li>
+</ol>
+<ul>
+<li>For one-dimensional data, R can perform aggregation operations like finding the mean which operates on the whole set.</li>
+</ul>
+<pre class="r"><code>mean(dat1)</code></pre>
+<pre><code>## [1] 5.5</code></pre>
+<ul>
+<li>R can also perform element-wise operations, like multiplication or addition.</li>
+</ul>
+<pre class="r"><code>dat1*2</code></pre>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+<pre class="r"><code>dat1+2</code></pre>
+<pre><code>##  [1]  3  4  5  6  7  8  9 10 11 12</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Subsetting data - Most of the data we will be working with will be multi-dimensional, in the form of a data frame. Data frames is a data structure with columns and rows. This is exactly the same as an Excel spreadsheet. The same operations that can be performed on one-dimensional data can be done on data frames, but R would need to know on which dimension to perform the operation. For example, R would need to know to perform an operation column-wise or row-wise. This is where we subsetting is useful.</li>
+</ol>
+<pre class="r"><code># let&#39;s create a fake data frame with 2 columns and 5 rows
+col1 &lt;- c(1:5)
+col2 &lt;- c(6:10)
+
+# cbind combines the two one-dimensional data
+# into one data frame column-wise
+# rbind will perform the same operation, but row-wise
+dat2 &lt;- data.frame(cbind(col1, col2))
+dat2</code></pre>
+<pre><code>##   col1 col2
+## 1    1    6
+## 2    2    7
+## 3    3    8
+## 4    4    9
+## 5    5   10</code></pre>
+<pre class="r"><code># get the summary of the whole data frame
+summary(dat2)</code></pre>
+<pre><code>##       col1        col2   
+##  Min.   :1   Min.   : 6  
+##  1st Qu.:2   1st Qu.: 7  
+##  Median :3   Median : 8  
+##  Mean   :3   Mean   : 8  
+##  3rd Qu.:4   3rd Qu.: 9  
+##  Max.   :5   Max.   :10</code></pre>
+<pre class="r"><code># there are several ways to subset a data frame
+# one way is by this convention: df_name[row_number,column_number]
+dat2[1,1]</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># if you want the whole first column, leave the row number blank
+# it works the same if you want just rows
+dat2[ ,1]</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code># if you want just the first three rows of all columns
+dat2[1:3, ]</code></pre>
+<pre><code>##   col1 col2
+## 1    1    6
+## 2    2    7
+## 3    3    8</code></pre>
+<pre class="r"><code># another way to subset a data frame is by using the &quot;$&quot; symbol
+# this only works for column-wise operations
+dat2$col1</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<ul>
+<li>A <code>subset</code> function is available in <code>base</code> R, but I will not discuss it here. I only really find it useful when working with large datasets. For smaller data sets, it is faster to not use the <code>subset</code> function.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><code>base</code> and <code>ggplot2</code> graphics - the figures below are for demonstration only. More sophisticated figures can be generated using either packages. <code>ggplot2</code> provides more flexibility, and in my opinion generally better graphics than <code>base</code> R. However, <code>ggplot2</code>’s design is different and requires one to learn a slightly different syntax and vocabulary. <code>ggplot2</code>’s syntax and vocabulary is based on the “Grammar of Graphics”.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you are particular about graphics, then <code>ggplot2</code> is the package to use. I personally prefer <code>ggplot2</code>, but as mentioned there is a separate learning curve just for this package.</li>
+</ol>
+<pre class="r"><code># we&#39;ll use the iris dataset for this example
+# this dataset comes with base R
+
+# base R graphics
+plot(iris$Petal.Length, iris$Petal.Width, pch=21,
+     bg=c(&quot;red&quot;,&quot;green3&quot;,&quot;blue&quot;)[unclass(iris$Species)])</code></pre>
+<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># ggplot2 graphics
+ggplot(iris, aes(x=Petal.Length, y=Petal.Width, color = Species)) +
+  geom_point()</code></pre>
+<p><img src="/post/2020-03-07-r-basics_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>We barely scratched the surface of the R world in this post, but what was covered here should be enough to get you started. More and more aspects of R will be covered as I write more and more posts. Remember, that with R or any language, you either use or you lose it, so keep on practicing.</p>
+<p>In the next post I’m thinking of covering method comparisons. There we will learn about how to use R in linear regression. Until then, thank you for reading the whole way through and have a great day.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://www.r-project.org/">r-project.org</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>If you are interested to learn more, go <a href="https://ggplot2.tidyverse.org/">here</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/r/">R</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/statistics-basics/" data-tooltip="Statistics Basics">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/deming-and-passing-bablok-regressions/" data-tooltip="Deming and Passing-Bablok Regressions">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/03/r-basics/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/03/r-basics/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+    &copy; 2020 <a href="https://github.com/adrianBandolon">spyrokete</a>. All Rights Reserved
+  </span>
+</footer>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/statistics-basics/" data-tooltip="Statistics Basics">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/deming-and-passing-bablok-regressions/" data-tooltip="Deming and Passing-Bablok Regressions">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/03/r-basics/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/03/r-basics/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F03%2Fr-basics%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F03%2Fr-basics%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+  <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/images/reserved-seat.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Adrian Bandolon</h4>
+    
+      <div id="about-card-bio">In God we trust; everyone else bring data. <strong>W.Edwards Deming</strong></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist, Lab Manager, Marine Biologist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Texas
+      </div>
+    
+  </div>
+</div>
+ 
+ 
+  
+    
+      <div id="cover" style="background-image:url('/images/2135.jpg');"></div>
+    
+  
+
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="/js/highlight.pack.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pbxhdmi2cahg8aogojgype0cxrvtph51ds1d7sowplqr7hezcclrjo86.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/03\/r-basics\/';
+          
+            this.page.identifier = '\/2020\/03\/r-basics\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'labdatascience';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+ 
+</body>
+
+</html>

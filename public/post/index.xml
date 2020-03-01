@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,12 +32,22 @@ We will first study probability distributions. In the process we will learn abou
     </item>
     
     <item>
+      <title>R Basics</title>
+      <link>/2020/03/r-basics/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/r-basics/</guid>
+      <description>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.</description>
+    </item>
+    
+    <item>
       <title>Deming and Passing-Bablok Regressions</title>
       <link>/2020/02/deming-and-passing-bablok-regressions/</link>
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/02/deming-and-passing-bablok-regressions/</guid>
-      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the data structure, one of these two regression methods is used a part of a validation study.
+      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the qualities of the data, one of these two regression methods is used a part of a validation study.
 Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.</description>
     </item>
     
