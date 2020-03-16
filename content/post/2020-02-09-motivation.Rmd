@@ -15,7 +15,7 @@ keywords:
 autoThumbnailImage: false
 
 coverImage: /post/2020-02-09-motivation_files/coverImage.jpg
-coverCaption: "A View of Taipei from the Top of Taipei 101"
+coverCaption: "A View of Taipei from the Observation Deck of Taipei 101"
 thumbnailImage: /post/2020-02-09-motivation_files/coverThumb.jpg
 thumbnailImagePosition: top
 weight: 1

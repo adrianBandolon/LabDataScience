@@ -1,0 +1,115 @@
+---
+title: Method Verification
+author: Adrian Bandolon
+date: '2020-03-16'
+categories:
+  - Laboratory
+  - Method Verification
+tags:
+  - CLSI
+  - Method Verification
+  - R
+  - Statistics
+  - Method Validation
+slug: method-validation-with-r
+keywords:
+  - tech
+  - validation
+  - R
+  - CLSI
+  - Method Verification
+clearReading: yes
+coverImage: /post/2020-03-16-method-validation-with-r_files/bellTower.jpg
+coverCaption: "The Bell Tower in Vigan City"
+thumbnailImage: /post/2020-03-16-method-validation-with-r_files/bellTower_thumb.jpg
+thumbnailImagePosition: top
+autoThumbnailImage: no
+---
+
+Every now and again we have to perform method verification studies. Method verification is required when implementing new tests, when a new instrument is installed or if a method is changed. In rare cases, a verification study is also needed when changing collection tube manufacturer or tube additive.^[A process which is currently on-going in our lab.]
+
+For method verification studies, help is usually provided by the test manufacturer. They will typically send a technician that will run all the samples, crunch all the data and provide a report. However, it is still the end-user laboratory's responsibility to interpret the results and approve the use of the test. It is therefore important for us, laboratorians to be able to interpret the reports provided to us. More importantly, we should be able to perform these studies and analyses on our own and not be too reliant on test manufacturers. After all, when our labs get inspected, we are the ones answerable to CAP and CLIA regulations, not the manufacturers.^[They have their own regulations to meet.]
+
+I've decided to divide this topic into several posts. I must admit that you won't be able to interpret verification results by reading this post alone. This post will only cover most of the background information related to method verification. The different parts of the verification process will be discussed in greater details in subsequent posts. All these related posts will be placed in the "Method Verification" category.
+
+## Definitions
+
+1. **Validation -** a defined process for the collection of evidence that a test performs as intended.
+
+2. **Verification -** an abbreviated process to demonstrate that test performance complies with previously established specifications (ie. through method validation).
+
+I'm guilty of using "method validation" when I should have been using "method verification". I've seen these terms used interchangeably. In my mind they meant the same thing. The difference is more nuanced that I realized. You learn something everyday! I will strive to use each term consistent with their definitions as to avoid confusion.
+
+Anyways...method validations/verifications are further categorized into:
+
+a. **Analytical Validation/Verification -** assesses the assay and its performance characteristics. This process also attempt to determine the optimal conditions that will generate a reliable, reproducible and accurate assay for the intended application. *This is required by CLIA and CAP*
+
+b. **Clinical Validation/Verification -** determines the ability of a test to diagnose or predict risk for a particular health condition. *This is not addressed by CLIA. Addressed by CAP in the Molecular Pathology and Microbiology checklist only.*
+
+c. **Clinical Utility Validation/Verification -** assesses the health-related risks and benefits associated with the use of the test in practice. This validation is complex, subjective and involves areas outside of the laboratory. *This is not addressed by CAP or CLIA.* 
+
+We will only discuss *analytic __verification__* in more detail since this is what is more commonly performed in my laboratory. Clinical validation and clinical utility validation are usually part of the test manufacturer responsibility instead of the end-user laboratory.
+
+## Analytic Verification
+
+This is required by CLIA and CAP for non-waived tests. The items below must be verified:
+
++ Accuracy (Bias) 
++ Precision
++ Reportable Range (Analytical Measurement Range (AMR))
++ Reference Range
++ Sensitivity (Limits of Detection)
++ Specificity
+
+The requirements differ depending on the FDA approval status of the test.
+
++ For FDA approved/cleared tests, only performance *verification* is required. That is, the laboratory is only required to show that the test is able to obtain comparable performance specifications to those established by the manufacturer. This requirement is the same for moderate and high-complexity tests.
++ For tests **NOT** approved/cleared by the FDA, performance *validation* is required. This means that the laboratory has to establish the method's performance specifications. *Laboratory-Developed Tests (LDT)* and *Laboratory-Modified Tests* fall into this category. By definition, both laboratory-developed tests and laboratory-modified tests are high-complexity tests.
+    + **Laboratory-Developed Test (LDT)** - is a test that is used by the same laboratory that developed it. This definition only applies to tests first used for clinical testing after April 23, 2003. An LDT is neither FDA approved or cleared.
+    + **Laboratory-Modified Test** - these tests were FDA cleared/approved, but has been "modified" by the laboratory. Modifications include using a sample type or collection device or using the test in a patient population not listed on the manufacturer labeling. The laboratory must *validate* the modifications.
+    
+### Accuracy
+
+**Accuracy** also called **bias** or **inaccuracy** measures **systematic error** . It refers to how close a result comes to the true value. This can be determined by comparing an instrument's results to a known standard or to a reference method. 
+
+When accuracy is measured using a known standard, acceptability limits are typically defined in terms of **Total Allowable Error (TEa)**. Total allowable error can be established based on the range of actual proficiency testing results for the analyte, on manufacturer specifications or on clinical decision points. Data Innovations, the creators of EP Evaluator has a total allowable error table that covers most analytes measured by clinical laboratories.^[[https://datainnovations.com/allowable-total-error-table](https://datainnovations.com/allowable-total-error-table)] 
+
+Total allowable error are expressed as percentage ($\%$), in concentration units (e.g. mmol/L) or in standard deviations (e.g. $\pm 3SD$). TEa's expressed in percentage will not work at all concentrations. Take Troponin-I results for example. Suppose the new method gives you are result of 0.1 ng/ml, and the old method gives you a 0.2 ng/ml result. Using^[This is the formula we currently use in our laboratory]: 
+
+\[
+\bigg(\frac{new\ method - old\ method}{new\ method}\bigg)\times 100
+\]
+
+gives you a $-100\%$ TEa between the methods. The difference is clinically insignificant,^[Both results are considered high] but this fails the accuracy test. For analytes where TEa is specificied in percentage, it is recommended that a concentration TEa value be calculated.
+
+Some TEa's are specified in standard deviations. I personally struggled to wrap my head around this specification (i.e $\pm 3SD$ of what? of each other?). This presentation [here](https://datainnovations.com/sites/default/files/webinar_archive/EE-performance-standards.pdf) really helped me. It gives more details for how to calculate total allowable error.^[I'm not sponsored by Data Innovations, but I find the online resources they provide useful. [https://www.westgard.com/](https://www.westgard.com/) is also a great resource] It presents a way to generalize calculations for TEa's specified in standard deviations and how to calculate a concentration TEa from a percentage specification.
+
+Accuracy can also be measured by comparing a method to a reference (ie. "gold" standard) method. This is sometimes called a *method comparison*. A *t-test* between paired samples can be used to determine if a bias is truly present. The *Bland-Altman* plot can be used to visualize comparability of the two methods. *Deming* and *Passing-Bablok* regressions can also be used to determine if there is systematic error between the methods. We will discuss Bland-Altman plots, Deming regression and Passing-Bablok regression in separate posts.
+
+### Precision
+
+**Precision** or more accurately **imprecision** is a measure of the **random error** in the system. It can be determined within run (*repeatability*), across several runs in one day or across multiple runs across multiple days (*reproducibility*). In practice most labs measure repeatability instead of reproducibility when implementing new methods. Imprecision is measured using standard deviation and the coefficient of variation.
+
+### Reportable Range
+
+**Reportable range** generally refers to the **analytical measurement range (AMR)**. This is the range of values that a method can directly measure  without dilution or concentration. This is verified by running a minimum of 3 points near the low end, midpoint and high end of the specified AMR. Five points is recommended, but the CAP minimum is 3 points. This process is often referred to as *calibration verification* or *linearity verification*. Calibrators or linearity materials from third party providers can be used for this.
+
+### Reference Range
+
+Classically, a **reference range** is defined as the central $95\%$ of values from a "normal"^["Normal" here refers to a "healthy" population, not the normal-gaussian distribution] population. For verification, CAP requires at least 20 samples from "normal" healthy individuals spread accross the age distribution of the target population. In cases where reference range verification is impractical, like for pediatric patients or therapeutic drug levels, manufacturer or literature data is acceptable.
+
+For some analytes, the reference range is a cut-off or decision point (eg. troponin, cholesterol). For these analytes, verification involves testing samples on each side of the decision point, using clinical data or through method comparison (eg. a high result on one method is also high on the other).
+
+### Sensitivity & Specificity
+
+**Sensitivity** or **limits of detection (LOD)** is the lowest quantity of a substance that can be distinguished by a method from the absence of that substance. Sensitivity can also refer to the ability of an assay to detect a change in concentration of a substance. For verification and validation, sensitivity refers to the latter definition.
+
+**Specificity** in verification and validation studies refers to the ability of a method to distinguish the target analyte from interfering substances. 
+
+Literature or manufacturer documentation can be used to meet verification requirements for these two measures.
+
+## Conclusion
+
+This post covers the definition of terms and a little about the requirements involved in method verifications. In subsequent posts, I will try to cover the specifics of each part of method verifications. 
+
+Until then, wash your hands, don't hoard toilet paper and keep safe from COVID-19. Have a wonderful day.

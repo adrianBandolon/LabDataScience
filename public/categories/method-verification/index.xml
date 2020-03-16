@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CLSI on Lab &amp; Data Science</title>
-    <link>/tags/clsi/</link>
-    <description>Recent content in CLSI on Lab &amp; Data Science</description>
+    <title>Method Verification on Lab &amp; Data Science</title>
+    <link>/categories/method-verification/</link>
+    <description>Recent content in Method Verification on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/clsi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/method-verification/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>/2020/03/method-validation-with-r/</guid>
       <description>Every now and again we have to perform method verification studies. Method verification is required when implementing new tests, when a new instrument is installed or if a method is changed. In rare cases, a verification study is also needed when changing collection tube manufacturer or tube additive.1
 For method verification studies, help is usually provided by the test manufacturer. They will typically send a technician that will run all the samples, crunch all the data and provide a report.</description>
-    </item>
-    
-    <item>
-      <title>Deming and Passing-Bablok Regressions</title>
-      <link>/2020/02/deming-and-passing-bablok-regressions/</link>
-      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/02/deming-and-passing-bablok-regressions/</guid>
-      <description>Deming and Passing-Bablok regressions are used to compare two quantitative methods. They are used to compare a reference method to the new method. Depending on the qualities of the data, one of these two regression methods is used a part of a validation study.
-Deming and Passing-Bablok regressions are variations of an ordinary-least-squares (OLS) linear regression. In this post we will discuss Deming and Passing-Bablok regressions. Before we get there however, we will first touch on OLS regression.</description>
     </item>
     
   </channel>

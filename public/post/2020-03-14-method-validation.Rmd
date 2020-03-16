@@ -1,0 +1,23 @@
+---
+title: Method Validation
+author: Adrian Bandolon
+date: '2020-03-14'
+slug: method-validation
+categories:
+  - Getting Started
+  - Laboratory
+  - Validation
+tags:
+  - CLSI
+  - Least Squares
+  - Method Comparison
+  - Method Validation
+  - Deming
+  - Passing Bablok
+  - Statistics
+  - Validation
+keywords:
+  - tech
+---
+
+<!--more-->
