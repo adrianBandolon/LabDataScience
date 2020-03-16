@@ -1,17 +1,16 @@
 ---
 title: Method Verification
-author: Adrian Bandolon
-date: '2020-03-16'
+author: 'Adrian Bandolon'
+date: '2020-03-15'
+slug: method-verification
 categories:
   - Laboratory
   - Method Verification
 tags:
   - CLSI
-  - Method Verification
-  - R
-  - Statistics
   - Method Validation
-slug: method-validation-with-r
+  - Method Verification
+  - Validation
 keywords:
   - tech
   - validation
@@ -19,9 +18,9 @@ keywords:
   - CLSI
   - Method Verification
 clearReading: yes
-coverImage: /post/2020-03-16-method-validation-with-r_files/bellTower.jpg
+coverImage: /post/2020-03-15-method-verification_files/bellTower.jpg
 coverCaption: "The Bell Tower in Vigan City"
-thumbnailImage: /post/2020-03-16-method-validation-with-r_files/bellTower_thumb.jpg
+thumbnailImage: /post/2020-03-15-method-verification_files/bellTower_thumb.jpg
 thumbnailImagePosition: top
 autoThumbnailImage: no
 ---

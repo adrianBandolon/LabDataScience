@@ -6,7 +6,7 @@
     <description>Recent content in R on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
@@ -39,16 +39,6 @@ We will study probability distributions. In the process we will learn about meas
       <guid>/2020/03/r-basics/</guid>
       <description>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
 R will take time to learn, but it will be worth the effort.</description>
-    </item>
-    
-    <item>
-      <title>Method Verification</title>
-      <link>/2020/03/method-validation-with-r/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/method-validation-with-r/</guid>
-      <description>Every now and again we have to perform method verification studies. Method verification is required when implementing new tests, when a new instrument is installed or if a method is changed. In rare cases, a verification study is also needed when changing collection tube manufacturer or tube additive.1
-For method verification studies, help is usually provided by the test manufacturer. They will typically send a technician that will run all the samples, crunch all the data and provide a report.</description>
     </item>
     
     <item>

@@ -6,17 +6,17 @@
     <description>Recent content in CLSI on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/clsi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Method Verification</title>
-      <link>/2020/03/method-validation-with-r/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <link>/2020/03/method-verification/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/03/method-validation-with-r/</guid>
+      <guid>/2020/03/method-verification/</guid>
       <description>Every now and again we have to perform method verification studies. Method verification is required when implementing new tests, when a new instrument is installed or if a method is changed. In rare cases, a verification study is also needed when changing collection tube manufacturer or tube additive.1
 For method verification studies, help is usually provided by the test manufacturer. They will typically send a technician that will run all the samples, crunch all the data and provide a report.</description>
     </item>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Lab &amp; Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CLSI</title>
       <link>/tags/clsi/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/clsi/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>Method Validation</title>
       <link>/tags/method-validation/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/method-validation/</guid>
       <description></description>
@@ -32,27 +32,27 @@
     <item>
       <title>Method Verification</title>
       <link>/tags/method-verification/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/method-verification/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <title>Validation</title>
+      <link>/tags/validation/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>/tags/validation/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Statistics</title>
-      <link>/tags/statistics/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/statistics/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
@@ -102,11 +102,11 @@
     </item>
     
     <item>
-      <title>Validation</title>
-      <link>/tags/validation/</link>
+      <title>Statistics</title>
+      <link>/tags/statistics/</link>
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/validation/</guid>
+      <guid>/tags/statistics/</guid>
       <description></description>
     </item>
     
