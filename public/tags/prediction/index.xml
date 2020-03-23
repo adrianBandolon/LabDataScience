@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prediction on Lab &amp; Data Science</title>
+    <link>/tags/prediction/</link>
+    <description>Recent content in Prediction on Lab &amp; Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/prediction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>COVID19 Forecasting</title>
+      <link>/2020/03/covid19-forecasting/</link>
+      <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/covid19-forecasting/</guid>
+      <description>A COVID19 Global Forecasting competition has been launched in Kaggle. I would love to participate in the competition, but just do not have the time. My work at the hospital takes precedence. My aim for the time being is to describe the progression of COVID19 as it sweeps across the world. I still have much to learn about modelling epidemic/pandemic progression. An attempt at forecasting will follow later.</description>
+    </item>
+    
+  </channel>
+</rss>
