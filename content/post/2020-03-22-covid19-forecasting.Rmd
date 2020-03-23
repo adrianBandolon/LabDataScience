@@ -1,0 +1,285 @@
+---
+title: COVID19 Forecasting
+author: Adrian Bandolon
+date: '2020-03-22'
+slug: covid19-forecasting
+categories:
+  - Data Visualization
+  - Exploratory Data Analysis
+tags:
+  - COVID19
+  - EDA
+  - Data Visualization
+  - Prediction
+keywords:
+  - COVID19
+clearReading: yes
+coverImage: /post/2020-03-22-covid19-forecasting_files/2016CHINA922.jpg
+coverCaption: "Strolling Through Zhoujiajiao Water Village in the Outskirts of Shanghai"
+thumbnailImage: /post/2020-03-22-covid19-forecasting_files/2016CHINA922_thumb.jpg
+thumbnailImagePosition: top
+autoThumbnailImage: no
+---
+
+A **COVID19 Global Forecasting** competition has been launched in [Kaggle](https://www.kaggle.com/c/covid19-global-forecasting-week-1). I would love to participate in the competition, but just do not have the time. My work at the hospital takes precedence. My aim for the time being is to describe the progression of COVID19 as it sweeps across the world. I still have much to learn about modelling epidemic/pandemic progression. An attempt at forecasting will follow later. For now, I will focus on exploratory data analysis and data visualization. 
+
+Data is from the Kaggle **Global Forecasting--Week 1** competition. I will try to update the data daily.
+
+# Introduction
+
+These figures are up-to-date as of March 21, 2020.
+
+All the plots found in this post are interactive. If you hover over the graph, a set of icons should appear on the top right of the figure. Hovering over the icons will generate a tooltip that tells you the function of that icon. The legend functions as a toggle between select/deselect. For example, if "China" is clicked, it is removed/added to the graph. For best results, click the "Autoscale" icon on top, before selecting a country.
+
+The legend is slightly mis-leading. It is sorted in alphabetical order, not in number of cases. Hence, Australia does not have the largest number of cases. In fact, of the top 20, it has the smallest number of cases.
+
+There are a total of 194 countries in this dataset. I only selected the top 20 countries in each category to create more visually effective graphs and tables. This was an arbitrary decision.
+
+# Top 20 Countries by Confirmed Cases
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+library(reshape2)
+library(viridis)
+library(ggthemes)
+library(plotly)
+library(maps)
+library(formattable)
+library(directlabels)
+library(leaflet)
+library(scales)
+```
+
+```{r, echo=FALSE,include=FALSE}
+latest_date <- list(as.Date('2020-03-21'))
+
+data <- read_csv("data/COVID19/covid_19_data.csv")
+
+data <- data[, -c(1, 3, 5)]
+data$`Country/Region` <-
+  ifelse(
+    grepl("Mainland China", data$`Country/Region`),
+    'China',
+    ifelse(
+      grepl("occupied Palestinian territory", data$`Country/Region`),
+      'Palestine',
+      data$`Country/Region`
+    )
+  )
+
+colnames(data)[colnames(data) == "ObservationDate"] <- "date"
+
+# Date to char for parsing and conversion
+data$date <- as.character(data$date)
+# Parse the date
+data$year <-
+  sapply(data$date, function(x)
+    as.numeric(strsplit(x, "/")[[1]][3]))
+data$month <-
+  sapply(data$date, function(x)
+    as.numeric(strsplit(x, "/")[[1]][1]))
+data$day <-
+  sapply(data$date, function(x)
+    as.numeric(strsplit(x, "/")[[1]][2]))
+
+# clean up date format as there is some mis-matches
+data$year <- ifelse(data$year == '2020', "20", data$year)
+data$year <- (as.numeric(data$year) + 2000)
+data$date <-
+  as.Date(paste0(data$year, '-', data$month, '-', data$day), format = "%Y-%m-%d")
+
+
+death <-
+  subset(data, select = c(`Country/Region`, date, Deaths))
+colnames(death)[colnames(death) == "Deaths"] <- "count"
+
+death <- death %>%
+  group_by(`Country/Region`, date) %>%
+  summarise_all(list(sum))
+
+reco <-
+  subset(data, select = c(`Country/Region`, date, Recovered))
+colnames(reco)[colnames(reco) == "Recovered"] <- "count"
+
+reco <- reco %>%
+  group_by(`Country/Region`, date) %>%
+  summarise_all(list(sum))
+
+
+confirmed <-
+  subset(data, select = c(`Country/Region`, date, Confirmed))
+colnames(confirmed)[colnames(confirmed) == "Confirmed"] <- "count"
+
+confirmed <- confirmed %>%
+  group_by(`Country/Region`, date) %>%
+  summarise_all(list(sum))
+
+time <-
+  as.POSIXct(strptime(c("2019-11-01", latest_date), format = "%y-%m-%d"))
+```
+
+```{r, echo=FALSE, include=FALSE, warning=FALSE, message=FALSE, prompt=FALSE}
+
+# Because the most recent date has missing data, I'm using the next most recent date
+top <- confirmed %>% filter(date == latest_date) %>% arrange(desc(count))
+top <- top_n(ungroup(top), 20, count)
+
+confirmed$Date <- as.POSIXct.Date(confirmed$date)
+confirmed$Count <- confirmed$count
+
+top_ten <-
+  confirmed %>% filter(`Country/Region` %in% top$`Country/Region`) %>%
+  group_by(date, count) %>%
+  ggplot(aes(x = Date, y = Count, color = `Country/Region`)) +
+  geom_point(size = 1.5, pch = 21) +
+  geom_line(alpha = .5) +
+  scale_x_datetime(limits = time) +
+  scale_color_viridis(discrete = TRUE, option = "A") +
+  labs(title = "Top 20 Countries by COVID-19 Confirmed Case Count") +
+  xlab("Date") +
+  ylab("Cases") +
+  theme_dark()
+```
+
+```{r, echo=FALSE, fig.height=8, fig.width=10}
+
+ggplotly(top_ten)
+
+```
+
+Of note is how South Korea's line has flattened out to around 8799 cases. It's still rising, but at a smaller rate.^[Line segments between the dots are shorter] China's line has also flattened out, but with a greater number of cases, almost 10 times that of South Korea's. The number of cases in South Korea surged in mid-February. Within a month they were able to slow it's spread. This is testament to the effectiveness of South Korea's response to the viral threat. 
+
+This is in stark contrast to the still rising number of cases in Italy. Keep in mind that both countries are located in peninsulas, with high population densities. Their case numbers also surged in mid-February.
+
+It is not that obvious from the figure above, but the U.S. has overtaken Iran in the number of confirmed COVID19 cases. In fact, it looks like Iran is slowing down relative to the U.S. The U.S. has also overtaken Spain by about 100 cases. **The U.S. is now a hotspot for COVID19.**
+
+# Top 20 Countries by Mortality
+
+```{r, echo=FALSE, include=FALSE}
+top.death <- death %>% filter(date == latest_date) %>% arrange(desc(count))
+top.death <- top_n(ungroup(top.death), 20, count)
+
+death$Date <- as.POSIXct.Date(death$date)
+death$Count <- death$count
+
+trend.death <-
+  death %>% filter(`Country/Region` %in% top.death$`Country/Region`) %>%
+  group_by(date, count) %>%
+  ggplot(aes(x = Date, y = Count, color = `Country/Region`)) +
+  geom_point(size = 1.5, pch = 21) +
+  geom_line(alpha = .5) +
+  scale_x_datetime(limits = time) +
+  scale_color_viridis(discrete = TRUE, option = "A") +
+  labs(title = "Top 20 Countries by COVID-19 Mortality") +
+  xlab("Date") +
+  ylab("Deaths") +
+  theme_dark()
+
+```
+
+```{r, echo=FALSE, fig.height=8, fig.width=10}
+
+ggplotly(trend.death)
+
+```
+
+Sadly, no one in the world is suffering right now more than Italy, where the mortality rate is around 9 percent. There are now more deaths due to COVID19 in Italy that there are in China. Not far from the mortality rate Italy, is Iran, Spain, France and of course China.
+
+The mortality rate in China has tapered off, possibly because the rate that new cases are discovered has also slowed down. A similar effect can be seen in South Korea. 
+
+The mortality rate in the U.S. and U.K. seem like they are on-track to rise to same level as France, Spain and Italy.^[Hopefully not] All this will depend on the effectiveness and timeliness of the each country's response.
+
+
+## Measuring Response Effectiveness
+
+The effectiveness of a country's response can be measured by plotting the rise/fall of the number of cases after the $100^{th}$ case. In theory, the number of cases will rise and fall depending on the effectiveness of the interventions and response.
+
+Since China was in more advanced stages of the pandemic, the first point for China in the figure below is when they already had 547 cases.
+
+<bp>
+
+```{r, echo=FALSE, include=FALSE}
+
+# Subset of countries with 100 cases arranged in ascending date order, Then an ID column is created to increment 1 day by country to get the number of days since 100 confirmed cases between(Long, -152,-50)
+hun.cases <- confirmed %>% filter(count >= 100) %>% arrange(date)
+
+hun.cases <-
+  hun.cases %>% group_by(`Country/Region`) %>% mutate(id = row_number())
+hun.cases <-
+  hun.cases %>% group_by(`Country/Region`) %>% mutate(id = 1:n())
+hun.cases <-
+  hun.cases %>% group_by(`Country/Region`) %>% mutate(id = seq_len(n()))
+hun.cases <-
+  hun.cases %>% group_by(`Country/Region`) %>% mutate(id = seq_along(date))
+
+hun.cases$Day <- hun.cases$id
+hun.cases$Count <- hun.cases$count
+
+hun.fig <-
+  hun.cases %>% filter(`Country/Region` %in% top$`Country/Region`) %>%
+  group_by(Day, Count) %>%
+  ggplot(aes(x = Day, y = Count, color = `Country/Region`)) +
+  geom_point(size = 1.5, pch = 21) +
+geom_line(alpha = .9) +
+  ylim(0, 40000) +
+  xlim(0, 30) +
+  scale_color_viridis(discrete = TRUE, option = "A") +
+  labs(title = "Case Count Since 100th Confirmed Case") +
+  xlab("Number of Days Since 100th Confirmed Case") +
+  ylab("Case Count") +
+  theme_dark()
+```
+
+```{r, echo=FALSE, warning=FALSE, fig.height=8, fig.width=10}
+ggplotly(hun.fig)
+```
+
+From the plot above we can get a sense of how effective South Korea's response is relative to most countries. They we able to slow and possibly stop the spread of the virus within 30 days of having 100 confirmed cases. In comparison, Spain and the U.S. is at day 20 since the $100^{th}$ case and their curves are still not flattening out. The U.S. line even seem steeper than that of Spain and even Italy. **Sadly, this indicates that U.S. response is ineffective** which may in turn cause many people their lives.
+
+# Summary and Conclusion
+
+```{r, echo=FALSE, warning=FALSE}
+
+# subsetting the death and reco dataframes by latest date
+tbl.all <- top
+tbl.death <- death %>% filter(date == latest_date)
+tbl.reco <- reco %>% filter(date == latest_date)
+
+# Joining the top 10 countries by cases to their respective counts of deaths and recoveries
+tbl.all <- tbl.all %>% left_join(tbl.death[,c("count", "Country/Region")], by=c("Country/Region"), suffix = c("","_death"))
+tbl.all <- tbl.all %>% left_join(tbl.reco[,c("count", "Country/Region")], by=c("Country/Region"), suffix = c("","_reco"))
+
+#renaming the columns
+colnames(tbl.all)[colnames(tbl.all)=="count"] <- "Cases"
+colnames(tbl.all)[colnames(tbl.all)=="count_death"] <- "Deaths"
+colnames(tbl.all)[colnames(tbl.all)=="count_reco"] <- "Recoveries"
+
+tbl.all <- subset(tbl.all, select = c(`Country/Region`, Cases, Deaths, Recoveries))
+
+tbl.all$`Percent Recovered` <- NA
+tbl.all$Mortality <- NA
+
+# Calculating Percent
+tbl.all$`Percent Recovered` <- percent((tbl.all$Recoveries / tbl.all$Cases))
+tbl.all$Mortality <- percent((tbl.all$Deaths / tbl.all$Cases)) 
+
+# Formattable is pretty neat for making nicer charts
+table.counts <- formattable(tbl.all, align =c("l","r","r","r","r","r"),
+                list(`SDOH` = formatter("span", style = ~ formattable::style(color = "grey",font.weight = "bold")),
+                `Cases` = color_bar("#EEDC82"),
+                `Recoveries` = color_bar("#9AFF9A"),
+                `Deaths` = color_bar("#FFBBFF"),
+                `Percent Recovered` = color_bar("#9AFF9A"),
+                `Mortality` = color_bar("#FFBBFF")))
+
+formattable(table.counts)
+```
+
+When I started this post I was hoping to see at least some hope to our current predicament. Unfortunately we still have a long ways to go. I was already suspicious that the response to this virus from U.S. authorities were inadequate. Sadly my suspicions are true. Tomorrow, I go back to work with this in mind. Tomorrow is another day, another chance to flatten that curve.
+
+The next step to this is forecasting. As much as the forecast for the U.S. and the world looks dire, I will try to update this as much as time allows. 
+
+Until then, y'all take care and take care of each other. Wash your hands! The fate of the world is literally in them.
+

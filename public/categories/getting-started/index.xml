@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>Motivation</title>
-      <link>/2020/02/motivation/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      <title>R Basics</title>
+      <link>/2020/03/r-basics/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/02/motivation/</guid>
-      <description>I currently manage a small laboratory. Recently we unexpectedly had to conduct several method validations in a matter of weeks. While working through these validations, it became apparent how dependent labs like mine, and even larger laboratories are on manufacturers with respect to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
-My goal here is to share what I’ve learned on how to collect, interpret and interact with data.</description>
+      <guid>/2020/03/r-basics/</guid>
+      <description>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
+R will take time to learn, but it will be worth the effort.</description>
     </item>
     
     <item>
@@ -32,13 +32,13 @@ We will study probability distributions. In the process we will learn about meas
     </item>
     
     <item>
-      <title>R Basics</title>
-      <link>/2020/03/r-basics/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      <title>Motivation</title>
+      <link>/2020/02/motivation/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/03/r-basics/</guid>
-      <description>When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
-R will take time to learn, but it will be worth the effort.</description>
+      <guid>/2020/02/motivation/</guid>
+      <description>I currently manage a small laboratory. Recently we unexpectedly had to conduct several method validations in a matter of weeks. While working through these validations, it became apparent how dependent labs like mine, and even larger laboratories are on manufacturers with respect to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.
+My goal here is to share what I’ve learned on how to collect, interpret and interact with data.</description>
     </item>
     
   </channel>

@@ -17,8 +17,6 @@ coverCaption: "Night Stroll Through Busan Tower"
 thumbnailImage: /post/2020-02-16-statistics-basics_files/051712pinas1258_59_60_tonem_thumb.jpg
 thumbnailImagePosition: top
 autoThumbnailImage: no
-
-weight: 2
 ---
 
 Statistics is inherent in laboratory work since our primary product is data, yet so little emphasis is placed on it in medical technology schools. In this post we will cover basic statistical concepts that are commonly encountered in the laboratory. 

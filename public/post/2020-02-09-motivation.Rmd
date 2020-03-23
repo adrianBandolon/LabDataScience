@@ -18,7 +18,6 @@ coverImage: /post/2020-02-09-motivation_files/coverImage.jpg
 coverCaption: "A View of Taipei from the Observation Deck of Taipei 101"
 thumbnailImage: /post/2020-02-09-motivation_files/coverThumb.jpg
 thumbnailImagePosition: top
-weight: 1
 ---
 
 I currently manage a small laboratory. Recently we unexpectedly had to conduct several method validations in a matter of weeks. While working through these validations, it became apparent how dependent labs like mine, and even larger laboratories are on manufacturers with respect to method validations and data analytics. Statistics have fallen by the wayside, despite it being an integral part of the laboratory.

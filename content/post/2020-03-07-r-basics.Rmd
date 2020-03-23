@@ -15,8 +15,6 @@ coverImage: /post/2020-03-07-r-basics_files/theBund.jpg
 coverCaption: "Shanghai Financial District from The Bund"
 thumbnailImage: /post/2020-03-07-r-basics_files/theBund_thumb.jpg
 thumbnailImagePosition: top
-
-weight: 3
 ---
 
 When I was a graduate student most, if not all statistical computing was done either through SAS or SPSS. Both of these software packages were proprietary and licenses had to be bought by the university for its students. At that time, the license for SAS was around $1,000. Too expensive for a graduate student. Then along came R, an open-source, meaning free software package.
