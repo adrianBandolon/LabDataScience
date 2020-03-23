@@ -185,7 +185,7 @@ ggplotly(trend.death)
 
 ```
 
-Sadly, no one in the world is suffering right now more than Italy, where the mortality rate is around 9 percent. There are now more deaths due to COVID19 in Italy that there are in China. Not far from the mortality rate Italy, is Iran, Spain, France and of course China.
+Sadly, no one in the world is suffering right now more than Italy, where the mortality rate is around 9 percent. There are now more deaths due to COVID19 in Italy that there are in China. Not far from the mortality rate in Italy, is Iran, Spain, France and of course China.
 
 The mortality rate in China has tapered off, possibly because the rate that new cases are discovered has also slowed down. A similar effect can be seen in South Korea. 
 
@@ -236,7 +236,7 @@ geom_line(alpha = .9) +
 ggplotly(hun.fig)
 ```
 
-From the plot above we can get a sense of how effective South Korea's response is relative to most countries. They we able to slow and possibly stop the spread of the virus within 30 days of having 100 confirmed cases. In comparison, Spain and the U.S. is at day 20 since the $100^{th}$ case and their curves are still not flattening out. The U.S. line even seem steeper than that of Spain and even Italy. **Sadly, this indicates that U.S. response is ineffective** which may in turn cause many people their lives.
+From the plot above we can get a sense of how effective South Korea's response is relative to most countries. They we able to slow and possibly stop the spread of the virus within 30 days of having 100 confirmed cases. In comparison, Spain and the U.S. is at day 20 since the $100^{th}$ case and their curves are still rising at a fast rate. The U.S. line even seem steeper than that of Spain and even Italy. **Sadly, this indicates that U.S. response is ineffective,** which may in turn cause many people their lives.
 
 # Summary and Conclusion
 
@@ -277,7 +277,7 @@ table.counts <- formattable(tbl.all, align =c("l","r","r","r","r","r"),
 formattable(table.counts)
 ```
 
-When I started this post I was hoping to see at least some hope to our current predicament. Unfortunately we still have a long ways to go. I was already suspicious that the response to this virus from U.S. authorities were inadequate. Sadly my suspicions are true. Tomorrow, I go back to work with this in mind. Tomorrow is another day, another chance to flatten that curve.
+When I started this post I wanted to see at least some hope to our current predicament. Unfortunately we still have a long ways to go. I was already suspicious that the response to this virus from U.S. authorities were inadequate. Sadly my suspicions are true. Tomorrow, I go back to work with this in mind. Tomorrow is another day, another chance to flatten that curve.
 
 The next step to this is forecasting. As much as the forecast for the U.S. and the world looks dire, I will try to update this as much as time allows. 
 
